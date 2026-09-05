@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float deacceleration = 60f;
 
     [Header("Jumping")]
-    public float jumpForce = 1f;
+    public float jumpForce = 16f;
     public float gravityScale = 10f; 
     public float fallingGravityMultiplier = 1.8f; // faster falling
     public float lowJumpMultiplier = 2.5f; // short hop
@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpHeld;
     private float coyoteTimer;
     private float jumpBufferTimer;
+    private bool isJumpRequested;
 
     void Awake()
     {
@@ -36,12 +37,6 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = gravityScale;
     }
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -71,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         // jump trigger 
         if (jumpBufferTimer > 0f && coyoteTimer > 0f)
         {
-            Jump();
+            isJumpRequested = true;
             jumpBufferTimer = 0f;
             coyoteTimer = 0f;
         }
@@ -90,7 +85,11 @@ public class PlayerMovement : MonoBehaviour
         float movement = speedDifference * accelerationRate * Time.fixedDeltaTime;
         
         rb.linearVelocity = new Vector2(rb.linearVelocity.x + movement, rb.linearVelocity.y);
-
+        if (isJumpRequested)
+        {
+            Jump();
+            isJumpRequested = false;
+        }
         if(rb.linearVelocity.y < 0)
         {
             rb.gravityScale = gravityScale * fallingGravityMultiplier;
