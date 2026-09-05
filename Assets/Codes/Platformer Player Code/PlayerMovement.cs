@@ -30,11 +30,13 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTimer;
     private float jumpBufferTimer;
     private bool isJumpRequested;
-
+    private Vector3 originalScale;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravityScale;
+        
+        originalScale = transform.localScale;
     }
 
 
@@ -73,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         if(moveInput != 0)
         {
             // Flip the player sprite based on movement direction
-            transform.localScale = new Vector3(Mathf.Sign(moveInput), 1f, 1f);
+            transform.localScale = new Vector3(Mathf.Sign(moveInput) * Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
         }
 
     }
