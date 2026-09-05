@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         float accelerationRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deacceleration;
         float movement = speedDifference * accelerationRate * Time.fixedDeltaTime;
         
-        rb.linearVelocity += new Vector2(rb.linearVelocity.x + movement, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x + movement, rb.linearVelocity.y);
 
         if(rb.linearVelocity.y < 0)
         {
