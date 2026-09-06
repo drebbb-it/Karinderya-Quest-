@@ -3,8 +3,8 @@ using System;
 public static class GameEvents
 {   
     // When player successfully collects all ingredients in the inventory
-    public static event Action<string> OnIngredientsCollected;
-    public static void RaiseIngredientsCollected(string ingredientId) => OnIngredientsCollected?.Invoke(ingredientId);
+    public static event Action<string> OnIngredientCollected;
+    public static void RaiseIngredientsCollected(string ingredientId) => OnIngredientCollected?.Invoke(ingredientId);
     // Fired when NPC steals an ingredient from the player
     public static event Action<string>OnIngredientStolen;
     public static void RaiseIngredientStolen(string ingredientId) => OnIngredientStolen?.Invoke(ingredientId);
