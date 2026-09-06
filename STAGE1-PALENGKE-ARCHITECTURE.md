@@ -17,13 +17,13 @@ Event-driven, decoupled via a static event hub (`GameEvents`) so systems never r
 
 | Script | Role | Status |
 |---|---|---|
-| `GameEvents` | Static event hub — pickup, steal, inventory complete, vehicle hit, out of lives, timer tick/expired |  Not yet built |
+| `GameEvents` | Static event hub — pickup, steal, inventory complete, vehicle hit, out of lives, timer tick/expired |  BUILT |
 | `IngredientData` | ScriptableObject defining a single ingredient (id, name, sprite, category) |  Not yet built |
 | `InventoryController` | Tracks required shopping list, listens for collect/steal events, raises win condition | Not yet built  |
 | `IngredientPickup` | Sits on each ingredient prefab; fires collected/stolen events, supports NPC `TrySnatch()` |  Not yet built |
-| `TimerController` | Countdown timer; fires timer-expired (loss) |  Not yet built |
-| `LivesController` | Tracks lives; listens for vehicle hits; fires out-of-lives (loss) |  Not yet built |
-| `PlayerController2D` | Player movement/input |  Not yet built |
+| `TimerController` | Countdown timer; fires timer-expired (loss) |  BUILT |
+| `LivesController` | Tracks lives; listens for vehicle hits; fires out-of-lives (loss) |  BUILT |
+| `PlayerController2D` | Player movement/input | BUILT |
 | `TrafficHazard` | Vehicle movement + player-hit detection at crosswalk |  Not yet built |
 | `IngredientSnatcher` | NPC AI that races player to an ingredient | Not yet built |
 | `InventoryUI` | Binds to `OnIngredientCollected` / `OnInventoryComplete` |  Not yet built |
