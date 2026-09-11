@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
+    [SerializeField] private Animator player_default_0;
     public float moveSpeed = 8f;
     public float acceleration = 60f;
     public float deacceleration = 60f;
@@ -76,7 +77,12 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput != 0)
         {
             // Flip the player sprite based on movement direction
-            transform.localScale = new Vector3(Mathf.Sign(moveInput) * Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+             transform.localScale = new Vector3(Mathf.Sign(moveInput) * Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+             player_default_0.SetBool("isRunning", true);
+        }
+        else
+        {
+            player_default_0.SetBool("isRunning", false);
         }
 
         // Update Animator Parameters
