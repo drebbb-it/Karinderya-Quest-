@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - PlatformerBlock
+  - PlasticContainer
   layers:
   - Default
   - TransparentFX
