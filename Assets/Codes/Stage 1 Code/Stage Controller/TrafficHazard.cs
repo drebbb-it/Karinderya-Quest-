@@ -47,9 +47,9 @@ public class TrafficHazard : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2d(Collider2D other)
+    private void OnTriggerEnter2d(Collider2D collision)
     {
-        if(!other.CompareTag(_playerTag)) 
+        if(!collision.CompareTag(_playerTag)) 
         {
             return;
         }
