@@ -21,14 +21,17 @@ public class RecipeManager : MonoBehaviour
         if (result == "Carrot,Tomato")
         {
             Debug.Log("You made Soup!");
+            RecipePopup.Instance.ShowPopup("Soup");
         }
         else if (result == "Carrot,Meat,Tomato")
         {
             Debug.Log("You made Stew!");
+            RecipePopup.Instance.ShowPopup("Stew");
         }
         else
         {
             Debug.Log("Failed Recipe!");
+            RecipePopup.Instance.ShowPopup("Failed Recipe");
         }
     }
 }
