@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class LadleDrag : MonoBehaviour
 {
-    public Transform restPoint;
+    Vector3 startPos;
     Vector3 offset;
     Camera cam;
-    
+
     void Start()
     {
         cam = Camera.main;
-        transform.position = restPoint.position;
+        startPos = transform.position;   // uses the position you set in the Scene
     }
 
     void OnMouseDown()
@@ -27,7 +27,7 @@ public class LadleDrag : MonoBehaviour
             var plastic = hit.GetComponent<PlasticContainer>();
             if (plastic != null) plastic.Fill();
         }
-        transform.position = restPoint.position;
+        transform.position = startPos;
     }
 
     Vector3 MouseWorld()
