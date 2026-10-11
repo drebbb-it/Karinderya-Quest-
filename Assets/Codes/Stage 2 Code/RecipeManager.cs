@@ -5,6 +5,11 @@ public class RecipeManager : MonoBehaviour
 {
     public static RecipeManager Instance;
 
+    [Header("Dish Sprites")]
+    public Sprite afritadaSprite;
+    public Sprite ginilingSprite;
+    public Sprite failedSprite;
+
     private void Awake()
     {
         Instance = this;
@@ -20,18 +25,30 @@ public class RecipeManager : MonoBehaviour
 
         if (result == "Carrot,Tomato")
         {
-            Debug.Log("You made Soup!");
-            RecipePopup.Instance.ShowPopup("Soup");
+            Debug.Log("You made Afritada!");
+            RecipePopup.Instance.ShowPopup(
+                "Afritada",
+                afritadaSprite
+            );
+            ObjectiveManager.Instance.DishCooked("Afritada");
         }
         else if (result == "Carrot,Meat,Tomato")
         {
-            Debug.Log("You made Stew!");
-            RecipePopup.Instance.ShowPopup("Stew");
+            Debug.Log("You made Giniling!");
+            RecipePopup.Instance.ShowPopup(
+                "Giniling",
+                ginilingSprite
+            );
+            ObjectiveManager.Instance.DishCooked("Giniling");
+
         }
         else
         {
             Debug.Log("Failed Recipe!");
-            RecipePopup.Instance.ShowPopup("Failed Recipe");
+            RecipePopup.Instance.ShowPopup(
+                "Failed Recipe",
+                failedSprite
+            );
         }
     }
 }
