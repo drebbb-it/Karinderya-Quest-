@@ -46,6 +46,7 @@ public class PlasticContainer : MonoBehaviour
                 sr.sprite = emptySprite;
             }
         }
+        transform.position = startPos;
     }
         void OnMouseDown()
         {

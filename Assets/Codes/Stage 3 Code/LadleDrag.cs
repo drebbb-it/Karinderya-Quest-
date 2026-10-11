@@ -2,14 +2,20 @@ using UnityEngine;
 
 public class LadleDrag : MonoBehaviour
 {
+    public Sprite emptyLadle;
+    public Sprite filledLadle;
+    public Transform tip;
     Vector3 startPos;
     Vector3 offset;
     Camera cam;
+    SpriteRenderer sr;
+    bool hasFood;
 
     void Start()
     {
         cam = Camera.main;
-        startPos = transform.position;   // uses the position you set in the Scene
+        sr = GetComponent<SpriteRenderer>();
+        startPos = transform.position;   
     }
 
     void OnMouseDown()
@@ -21,11 +27,29 @@ public class LadleDrag : MonoBehaviour
 
     void OnMouseUp()
     {
-        var hit = Physics2D.OverlapPoint(transform.position, LayerMask.GetMask("DropZone"));
-        if (hit)
+        Vector2 point = tip != null ? tip.position : transform.position;
+        if (!hasFood)
         {
-            var plastic = hit.GetComponent<PlasticContainer>();
-            if (plastic != null) plastic.Fill();
+            var tray = Physics2D.OverlapPoint(point, LayerMask.GetMask("FoodTray"));
+            if (tray)
+            {
+                hasFood = true;
+                sr.sprite = filledLadle;
+            }
+        }
+        else
+        {
+            var hit = Physics2D.OverlapPoint(point, LayerMask.GetMask("DropZone"));
+            if (hit)
+            {
+                var plastic = hit.GetComponent<PlasticContainer>();
+                if (plastic != null && !plastic.isFilled)
+                {
+                    plastic.Fill();
+                    hasFood = false;
+                    sr.sprite = emptyLadle;
+                }
+            }
         }
         transform.position = startPos;
     }
