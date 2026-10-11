@@ -141,7 +141,7 @@ public class CookingPot : MonoBehaviour
         {
             potOpen.SetActive(false);
         }
-
+            
         if (timerText != null)
         {
             timerText.gameObject.SetActive(false);
