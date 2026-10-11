@@ -7,12 +7,18 @@ public class CookingPot : MonoBehaviour
 {
     [Header("Ingredients")]
     public List<string> ingredientsInPot = new List<string>();
+    [Header("Pot Sprites")]
+    [SerializeField] private GameObject potClosed;
+    [SerializeField] private GameObject potOpen;
 
     [Header("Cooking Settings")]
     [SerializeField] private float cookingTime = 5f;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI timerText;
+
+    [Header("Effects")]
+    [SerializeField] private GameObject stoveFire;
 
     private bool isCooking = false;
 
@@ -22,28 +28,45 @@ public class CookingPot : MonoBehaviour
         {
             timerText.gameObject.SetActive(false);
         }
+
+        if (stoveFire != null)
+        {
+            stoveFire.SetActive(false);
+        }
+
+        if (potClosed != null)
+        {
+            potClosed.SetActive(true);
+        }
+
+        if (potOpen != null)
+        {
+            potOpen.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-{
-    Ingredient ingredient = other.GetComponent<Ingredient>();
-
-    if (ingredient != null)
     {
-        ingredientsInPot.Add(ingredient.ingredientName);
+        Ingredient ingredient = other.GetComponent<Ingredient>();
 
-        Debug.Log("Added: " + ingredient.ingredientName);
-
-        IngredientSpawner spawner = other.GetComponent<IngredientSpawner>();
-
-        if (spawner != null)
+        if (ingredient != null)
         {
-            spawner.RespawnIngredient();
-        }
+            ingredientsInPot.Add(ingredient.ingredientName);
 
-        Destroy(other.gameObject);
+            Debug.Log("Added: " + ingredient.ingredientName);
+
+            IngredientSpawner spawner =
+                other.GetComponent<IngredientSpawner>();
+
+            if (spawner != null)
+            {
+                spawner.RespawnIngredient();
+            }
+
+            Destroy(other.gameObject);
+        }
     }
-}       
+
     private void OnMouseDown()
     {
         if (!isCooking && ingredientsInPot.Count > 0)
@@ -55,6 +78,22 @@ public class CookingPot : MonoBehaviour
     private IEnumerator CookFood()
     {
         isCooking = true;
+        
+        if (potClosed != null)
+        {
+            potClosed.SetActive(false);
+        }
+
+        if (potOpen != null)
+        {
+            potOpen.SetActive(true);
+        }
+
+        // Turn fire ON
+        if (stoveFire != null)
+        {
+            stoveFire.SetActive(true);
+        }
 
         float timeRemaining = cookingTime;
 
@@ -67,7 +106,8 @@ public class CookingPot : MonoBehaviour
         {
             if (timerText != null)
             {
-                timerText.text = "Cooking: " + Mathf.Ceil(timeRemaining) + "s";
+                timerText.text =
+                    "Cooking: " + Mathf.Ceil(timeRemaining) + "s";
             }
 
             timeRemaining -= Time.deltaTime;
@@ -84,7 +124,23 @@ public class CookingPot : MonoBehaviour
 
         ingredientsInPot.Clear();
 
+        // Turn fire OFF
+        if (stoveFire != null)
+        {
+            stoveFire.SetActive(false);
+        }
+
         yield return new WaitForSeconds(2f);
+        
+        if (potClosed != null)
+        {
+            potClosed.SetActive(true);
+        }
+
+        if (potOpen != null)
+        {
+            potOpen.SetActive(false);
+        }
 
         if (timerText != null)
         {

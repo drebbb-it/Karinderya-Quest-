@@ -30,6 +30,7 @@ public class RecipeManager : MonoBehaviour
                 "Afritada",
                 afritadaSprite
             );
+            ObjectiveManager.Instance.DishCooked("Afritada");
         }
         else if (result == "Carrot,Meat,Tomato")
         {
@@ -38,6 +39,8 @@ public class RecipeManager : MonoBehaviour
                 "Giniling",
                 ginilingSprite
             );
+            ObjectiveManager.Instance.DishCooked("Giniling");
+
         }
         else
         {
