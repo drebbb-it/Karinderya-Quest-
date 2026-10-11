@@ -10,11 +10,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - FoodTray
   - Water
   - UI
-  - 
-  - 
+  - DropZone
+  - NPC
   - Ground
   - Background
   - 
