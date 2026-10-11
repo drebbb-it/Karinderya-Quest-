@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RecipePopup : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class RecipePopup : MonoBehaviour
     [SerializeField] private GameObject popupPanel;
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI dishNameText;
+    [SerializeField] private Image dishImage;
 
     private bool popupOpen;
 
@@ -26,12 +28,13 @@ public class RecipePopup : MonoBehaviour
         }
     }
 
-    public void ShowPopup(string dishName)
+    public void ShowPopup(string dishName, Sprite dishSprite)
     {
         popupPanel.SetActive(true);
 
-        titleText.text = "Cooked";
+        titleText.text = "Cooked:";
         dishNameText.text = dishName;
+        dishImage.sprite = dishSprite;
 
         popupOpen = true;
     }
