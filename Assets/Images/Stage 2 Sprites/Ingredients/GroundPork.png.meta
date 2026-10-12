@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 1f836c5de802eec49b80ae048a6ad020
+guid: 345b5277700a1454f83efd06e970b9ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8984754096541894249
-    second: Meat_0
+      213: 7791589146576006629
+    second: GroundPork_0
+  - first:
+      213: 496129255533255906
+    second: GroundPork_1
+  - first:
+      213: 5467625949235477774
+    second: GroundPork_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,13 +108,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Meat_0
+      name: GroundPork_0
       rect:
         serializedVersion: 2
-        x: 173
-        y: 86
-        width: 266
-        height: 189
+        x: 93
+        y: 31
+        width: 419
+        height: 268
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +123,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9668d9e5f3240bc70800000000000000
-      internalID: 8984754096541894249
+      spriteID: 5eda3751c09412c60800000000000000
+      internalID: 7791589146576006629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundPork_1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 31
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ec1db6edea92e600800000000000000
+      internalID: 496129255533255906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundPork_2
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 31
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d73e405d8e0eb40800000000000000
+      internalID: 5467625949235477774
       vertices: []
       indices: 
       edges: []
@@ -137,7 +187,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Meat_0: 8984754096541894249
+      GroundPork_0: 7791589146576006629
+      GroundPork_1: 496129255533255906
+      GroundPork_2: 5467625949235477774
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

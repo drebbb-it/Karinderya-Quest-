@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4038aa24a2063894fa78116228cb2fd7
+guid: 12c3bc11b8dc0254ca9bd58d33620a6d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8113185096396602001
-    second: Tomato_0
+      213: -1442319768649312354
+    second: BayLeaves_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tomato_0
+      name: BayLeaves_0
       rect:
         serializedVersion: 2
-        x: 180
-        y: 79
-        width: 240
-        height: 247
+        x: 25
+        y: 82
+        width: 329
+        height: 434
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f65894ce32d286f80800000000000000
-      internalID: -8113185096396602001
+      spriteID: e975229efc9dbfbe0800000000000000
+      internalID: -1442319768649312354
       vertices: []
       indices: 
       edges: []
@@ -137,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tomato_0: -8113185096396602001
+      BayLeaves_0: -1442319768649312354
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
