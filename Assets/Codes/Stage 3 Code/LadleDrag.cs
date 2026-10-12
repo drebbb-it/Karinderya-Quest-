@@ -9,7 +9,7 @@ public class LadleDrag : MonoBehaviour
     Vector3 offset;
     Camera cam;
     SpriteRenderer sr;
-    bool hasFood;
+    string heldFood = "";
 
     void Start()
     {
@@ -28,13 +28,17 @@ public class LadleDrag : MonoBehaviour
     void OnMouseUp()
     {
         Vector2 point = tip != null ? tip.position : transform.position;
-        if (!hasFood)
+        if (heldFood == "")
         {
             var tray = Physics2D.OverlapPoint(point, LayerMask.GetMask("FoodTray"));
             if (tray)
             {
-                hasFood = true;
-                sr.sprite = filledLadle;
+                var foodTray = tray.GetComponent<FoodTray>();
+                if (foodTray != null)
+                {
+                    heldFood = foodTray.foodName;
+                    sr.sprite = filledLadle;
+                }
             }
         }
         else
@@ -45,8 +49,8 @@ public class LadleDrag : MonoBehaviour
                 var plastic = hit.GetComponent<PlasticContainer>();
                 if (plastic != null && !plastic.isFilled)
                 {
-                    plastic.Fill();
-                    hasFood = false;
+                    plastic.Fill(heldFood);
+                    heldFood = "";
                     sr.sprite = emptyLadle;
                 }
             }
