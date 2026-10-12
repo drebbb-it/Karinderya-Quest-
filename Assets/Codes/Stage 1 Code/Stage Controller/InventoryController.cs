@@ -6,6 +6,7 @@ public class InventoryController : MonoBehaviour
     [Tooltip("The full shopping list required to clear this stage")]
     [SerializeField] private List<IngredientData>  _requiredIngredients = new List<IngredientData>();
     
+    public IReadOnlyList<IngredientData> RequiredIngredients => _requiredIngredients;
     private readonly HashSet<string> _collectedIds = new HashSet<string>();
     private readonly HashSet<string> _lostIds = new HashSet<string>();
     public IReadOnlyCollection<string> CollectedIds => _collectedIds;
