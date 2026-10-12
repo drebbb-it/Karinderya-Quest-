@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "IngredientData", menuName = "Scriptable Objects/IngredientData")]
+[CreateAssetMenu(fileName = "IngredientData", menuName = "Palengke/IngredientData")]
 public class IngredientData : ScriptableObject
 {
     [Tooltip("Unique identifier for inventory tracking. Must be unique across all IngredientData assets ")]
@@ -22,6 +22,5 @@ public enum IngredientCategory
     Fruit,
     Vegetable,
     Meat,
-    Fish,
-    Rice
+
 }

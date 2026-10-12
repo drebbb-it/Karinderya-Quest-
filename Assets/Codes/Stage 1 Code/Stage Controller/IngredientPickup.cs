@@ -20,9 +20,13 @@ public class IngredientPickup : MonoBehaviour
         {
             return;
         }
-
+        if (_ingredientData == null)
+        {
+            Debug.LogError($"IngredientPickup {name} has no IngredientData assigned.");
+            return;
+        }
         _isClaimed = true;
-        GameEvents.RaiseIngredientsCollected(_ingredientData.IngredientId);
+        GameEvents.RaiseIngredientsCollected(_ingredientData);
         gameObject.SetActive(false);
     }
     public bool TrySnatch()

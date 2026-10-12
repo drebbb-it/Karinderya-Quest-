@@ -1,65 +1,80 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>One win requirement: collect <see cref="amount"/> items of a category.</summary>
+[Serializable]
+public struct CategoryRequirement
+{
+    public IngredientCategory category;
+    [Min(1)] public int amount;
+
+    public int RequiredAmount => Mathf.Max(1, amount);
+}
+
+/// <summary>
+/// Tracks how many items of each required category were collected and raises completion
+/// once every requirement is met.
+/// </summary>
 public class InventoryController : MonoBehaviour
 {
-    [Tooltip("The full shopping list required to clear this stage")]
-    [SerializeField] private List<IngredientData>  _requiredIngredients = new List<IngredientData>();
-    
-    public IReadOnlyList<IngredientData> RequiredIngredients => _requiredIngredients;
-    private readonly HashSet<string> _collectedIds = new HashSet<string>();
-    private readonly HashSet<string> _lostIds = new HashSet<string>();
-    public IReadOnlyCollection<string> CollectedIds => _collectedIds;
-    public IReadOnlyCollection<string> LostIds => _lostIds;
+    [SerializeField] private List<CategoryRequirement> _requirements = new List<CategoryRequirement>
+    {
+        new CategoryRequirement { category = IngredientCategory.Fruit, amount = 3 },
+        new CategoryRequirement { category = IngredientCategory.Vegetable, amount = 3 },
+        new CategoryRequirement { category = IngredientCategory.Meat, amount = 3 }
+    };
+
+    private readonly Dictionary<IngredientCategory, int> _requiredCounts = new Dictionary<IngredientCategory, int>();
+    private readonly Dictionary<IngredientCategory, int> _collectedCounts = new Dictionary<IngredientCategory, int>();
+    private bool _isComplete;
+
+    /// <summary>Configured requirements (read-only, for UI).</summary>
+    public IReadOnlyList<CategoryRequirement> Requirements => _requirements;
+
+    public int GetRequiredCount(IngredientCategory category) =>
+        _requiredCounts.TryGetValue(category, out int count) ? count : 0;
+
+    public int GetCollectedCount(IngredientCategory category) =>
+        _collectedCounts.TryGetValue(category, out int count) ? count : 0;
+
+    private void Awake()
+    {
+        // Duplicate categories in the list are summed.
+        foreach (CategoryRequirement requirement in _requirements)
+        {
+            _requiredCounts.TryGetValue(requirement.category, out int existing);
+            _requiredCounts[requirement.category] = existing + requirement.RequiredAmount;
+        }
+    }
 
     private void OnEnable()
     {
         GameEvents.OnIngredientCollected += HandleIngredientCollected;
-        GameEvents.OnIngredientStolen += HandleIngredientStolen;
-
     }
+
     private void OnDisable()
     {
         GameEvents.OnIngredientCollected -= HandleIngredientCollected;
-        GameEvents.OnIngredientStolen -= HandleIngredientStolen;
     }
 
-    private void HandleIngredientCollected(string ingredientId)
+    private void HandleIngredientCollected(IngredientData data)
     {
-        if (!isRequiredIngredient(ingredientId) || _collectedIds.Contains(ingredientId))
+        if (_isComplete || !_requiredCounts.TryGetValue(data.Category, out int required)) return;
+
+        int collected = GetCollectedCount(data.Category);
+        if (collected >= required) return; // already have enough of this category
+
+        collected++;
+        _collectedCounts[data.Category] = collected;
+        GameEvents.RaiseInventoryProgress(data.Category, collected, required);
+
+        foreach (KeyValuePair<IngredientCategory, int> entry in _requiredCounts)
         {
-            return;
+            if (GetCollectedCount(entry.Key) < entry.Value) return;
         }
 
-        _collectedIds.Add(ingredientId);
-        CheckCompletion();   
+        _isComplete = true;
+        GameEvents.RaiseInventoryComplete();
     }
-
-    private void HandleIngredientStolen(string ingredientId)
-    {
-        if (!isRequiredIngredient(ingredientId) || _collectedIds.Contains(ingredientId))
-        {
-            return;
-        }
-        // lost ingredients 
-        _lostIds.Add(ingredientId);
-    }
-    private bool isRequiredIngredient(string ingredientId)
-    {
-        for(int i = 0; i < _requiredIngredients.Count; i++)
-        {
-            if(_requiredIngredients[i].IngredientId == ingredientId)
-            {
-             return true;;
-            }
-        }
-        return false;
-    }
-    private void CheckCompletion()
-    {
-        if(_collectedIds.Count >= _requiredIngredients.Count)
-        {
-            GameEvents.RaiseInventoryComplete();
-        }
-    }
-}   
+}
