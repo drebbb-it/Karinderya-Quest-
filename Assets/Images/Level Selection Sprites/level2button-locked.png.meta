@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1f836c5de802eec49b80ae048a6ad020
+guid: a5c6778bda93b8443b41bf8fb94afe62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8984754096541894249
-    second: Meat_0
+      213: -217664022612416668
+    second: level2button-locked_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Meat_0
+      name: level2button-locked_0
       rect:
         serializedVersion: 2
-        x: 173
-        y: 86
-        width: 266
-        height: 189
+        x: 42
+        y: 37
+        width: 752
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9668d9e5f3240bc70800000000000000
-      internalID: 8984754096541894249
+      spriteID: 467edc389b3bafcf0800000000000000
+      internalID: -217664022612416668
       vertices: []
       indices: 
       edges: []
@@ -137,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Meat_0: 8984754096541894249
+      level2button-locked_0: -217664022612416668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
