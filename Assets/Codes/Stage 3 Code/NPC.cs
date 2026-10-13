@@ -28,7 +28,14 @@ public class NPC : MonoBehaviour
 
         wantedFood = possibleOrders[Random.Range(0, possibleOrders.Length)];
         if (orderText != null) orderText.text = wantedFood;
-        if (orderBubble != null) orderBubble.SetActive(false);
+
+        SetBubble(false);
+    }
+
+    void SetBubble(bool on)
+    {
+        if (orderBubble != null) orderBubble.SetActive(on);
+        else if (orderText != null) orderText.gameObject.SetActive(on);
     }
 
     public void Show()
@@ -49,7 +56,7 @@ public class NPC : MonoBehaviour
 
         served = true;
         canServe = false;
-        if (orderBubble != null) orderBubble.SetActive(false);
+        SetBubble(false);
         Debug.Log(name + " was served!");
         StartCoroutine(Leave());
         return ServeResult.Correct;
@@ -58,12 +65,12 @@ public class NPC : MonoBehaviour
     IEnumerator Appear()
     {
         yield return Move(hiddenPos, shownPos);
-        
+
         // Maghihintay muna ng 0.3 seconds pagkatapos umakyat bago lumabas ang order text
         yield return new WaitForSeconds(0.3f);
 
         canServe = true;
-        if (orderBubble != null) orderBubble.SetActive(true);
+        SetBubble(true);
     }
 
     IEnumerator Leave()
