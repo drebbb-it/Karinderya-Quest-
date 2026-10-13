@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 225230405}
   - component: {fileID: 225230404}
   - component: {fileID: 225230403}
+  - component: {fileID: 225230406}
   m_Layer: 0
   m_Name: HoverToolTip
   m_TagString: Untagged
@@ -159,8 +160,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7350db4ba3460314985f6f1cadb40ca2, type: 2}
+  m_sharedMaterial: {fileID: 4414161826824893534, guid: 7350db4ba3460314985f6f1cadb40ca2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -257,7 +258,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 4414161826824893534, guid: 7350db4ba3460314985f6f1cadb40ca2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -297,9 +298,22 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.22, y: -1.98}
-  m_SizeDelta: {x: 2.7569, y: 1.6152}
+  m_AnchoredPosition: {x: 1.2811, y: -1.7957}
+  m_SizeDelta: {x: 12.434, y: 2.0404}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &225230406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225230402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1a48114b7bdd244a068825ad83ff65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverTooltip
+  offset: {x: 0, y: 0.6, z: 0}
 --- !u!1 &332990049
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +327,7 @@ GameObject:
   - component: {fileID: 332990050}
   - component: {fileID: 332990053}
   m_Layer: 3
-  m_Name: Menudo NOBG_0
+  m_Name: Menudo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,8 +448,8 @@ Transform:
   m_GameObject: {fileID: 332990049}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3325, y: -2.5563, z: 0}
-  m_LocalScale: {x: 0.5078759, y: 0.6017257, z: 1}
+  m_LocalPosition: {x: -3.5877, y: -2.9651, z: 0}
+  m_LocalScale: {x: 0.4902218, y: 0.5554874, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -452,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4cf0111892f7d459706f86b3821184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodTray
-  foodName: 
+  foodName: Menudo
 --- !u!1 &337198764
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +495,7 @@ Transform:
   m_GameObject: {fileID: 337198764}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.14, y: -2.54, z: 0}
+  m_LocalPosition: {x: 9.13, y: -2.14, z: 0}
   m_LocalScale: {x: 0.87725276, y: 0.75470406, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -692,7 +706,7 @@ GameObject:
   - component: {fileID: 516231990}
   - component: {fileID: 516231991}
   m_Layer: 3
-  m_Name: Giniling NOBG_0
+  m_Name: Giniling Tray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -767,8 +781,8 @@ Transform:
   m_GameObject: {fileID: 516231987}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8956, y: -2.5093, z: 0}
-  m_LocalScale: {x: 0.54053533, y: 0.5651071, z: 1}
+  m_LocalPosition: {x: 3.06, y: -3.01, z: 0}
+  m_LocalScale: {x: 0.5050762, y: 0.5312572, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -831,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4cf0111892f7d459706f86b3821184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodTray
-  foodName: 
+  foodName: Giniling
 --- !u!1 &540988872
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +914,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 1
-  m_Sprite: {fileID: -5618492622591165342, guid: 38351a87ae292f94db8a83614418ba95, type: 3}
+  m_Sprite: {fileID: -8046888502568532485, guid: 6d503657601019d419d6e58905027e3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -920,10 +934,11 @@ Transform:
   m_GameObject: {fileID: 540988872}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.51, y: -0.64, z: 0}
-  m_LocalScale: {x: 1.7489766, y: 1.5675297, z: 1}
+  m_LocalPosition: {x: 0.69, y: -0.2, z: 0}
+  m_LocalScale: {x: 0.67952186, y: 0.73673093, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1996518469}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &540988875
@@ -939,9 +954,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   served: 0
-  hideOffset: 2
-  moveTime: 0.5
+  hideOffset: 5
+  moveTime: 0.8
   stayTime: 0.8
+  possibleOrders:
+  - Adobo
+  - Afritada
+  - Giniling
+  - Menudo
+  wantedFood: 
+  orderBubble: {fileID: 0}
+  orderText: {fileID: 1996518470}
 --- !u!61 &540988876
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -976,17 +999,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.05318427, y: 0.6279553}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.46, y: 3.36}
+    oldSize: {x: 3.65, y: 6.87}
     newSize: {x: 1.46, y: 3.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.46, y: 3.36}
+  m_Size: {x: 3.4810367, y: 6.240945}
   m_EdgeRadius: 0
 --- !u!1 &1216543520
 GameObject:
@@ -1001,7 +1024,7 @@ GameObject:
   - component: {fileID: 1216543523}
   - component: {fileID: 1216543524}
   m_Layer: 3
-  m_Name: Adobo NOBG_0
+  m_Name: Adobo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1076,7 +1099,7 @@ Transform:
   m_GameObject: {fileID: 1216543520}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.0529, y: -2.4817, z: 0}
+  m_LocalPosition: {x: 6.29, y: -3.02, z: 0}
   m_LocalScale: {x: 0.52432585, y: 0.54481226, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1140,7 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4cf0111892f7d459706f86b3821184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodTray
-  foodName: 
+  foodName: Adobo
 --- !u!1 &1358674311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,7 +1230,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2865381800798602678, guid: f8dfbd5c3e7ac614483e7b287db75d2f, type: 3}
+  m_Sprite: {fileID: 7262879558437311347, guid: 07da1f38d0c7e1a48960792cd45381b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1227,8 +1250,8 @@ Transform:
   m_GameObject: {fileID: 1358674311}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 0.21, z: -3392.9998}
-  m_LocalScale: {x: 59.765957, y: 43.031906, z: 37.699997}
+  m_LocalPosition: {x: 2.72, y: 0.21, z: -3392.9998}
+  m_LocalScale: {x: 58.56478, y: 43.031906, z: 37.699997}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1426297611}
@@ -1398,6 +1421,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1538651161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538651162}
+  - component: {fileID: 1538651163}
+  m_Layer: 7
+  m_Name: NPCManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1538651162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538651161}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.30685, y: 0.72067, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1538651163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538651161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e43ef88fe12de43a84caea4dd1acec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCManager
+  npcs:
+  - {fileID: 540988875}
+  - {fileID: 1755937467}
+  - {fileID: 1711945606}
+  delayBetween: 1.5
 --- !u!1 &1603470864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,6 +1576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675e63f8fa6a18f49906083ea276fa90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlasticContainer
+  currentFood: 
   emptySprite: {fileID: 4268620782627232472, guid: 90bad67d74f2034479b78c07e180404e, type: 3}
   filledSprite: {fileID: 3627025915171443396, guid: def69979a3a4e5940819d405627287fa, type: 3}
   isFilled: 0
@@ -1557,7 +1630,7 @@ GameObject:
   - component: {fileID: 1692760913}
   - component: {fileID: 1692760914}
   m_Layer: 3
-  m_Name: Afritad NOBG_0
+  m_Name: Afritada Tray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1632,8 +1705,8 @@ Transform:
   m_GameObject: {fileID: 1692760910}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1943, y: -2.5321, z: 0}
-  m_LocalScale: {x: 0.51516205, y: 0.563057, z: 1}
+  m_LocalPosition: {x: -0.33, y: -2.9725, z: 0}
+  m_LocalScale: {x: 0.51516205, y: 0.54768556, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1696,7 +1769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4cf0111892f7d459706f86b3821184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodTray
-  foodName: 
+  foodName: Afritada
 --- !u!1 &1711945602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,7 +1838,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 1
-  m_Sprite: {fileID: -9038946984294285179, guid: 5e215816d9d55a7489146e17863680cd, type: 3}
+  m_Sprite: {fileID: 7340072037238508775, guid: 4d7d60d18d6dbfc4782724cae6ae6545, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1785,8 +1858,8 @@ Transform:
   m_GameObject: {fileID: 1711945602}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.41, y: -0.77, z: 0}
-  m_LocalScale: {x: 1.7223791, y: 1.6429354, z: 1}
+  m_LocalPosition: {x: 0.64, y: -0.27, z: 0}
+  m_LocalScale: {x: 0.7103798, y: 0.68759495, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1825,17 +1898,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.059471965, y: 0.56074715}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.46, y: 3.45}
+    oldSize: {x: 4.32, y: 7.13}
     newSize: {x: 1.46, y: 3.45}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.46, y: 3.45}
+  m_Size: {x: 3.9577792, y: 6.4366407}
   m_EdgeRadius: 0
 --- !u!114 &1711945606
 MonoBehaviour:
@@ -1851,8 +1924,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   served: 0
   hideOffset: 4
-  moveTime: 0.5
+  moveTime: 0.8
   stayTime: 0.8
+  possibleOrders:
+  - Adobo
+  - Afritada
+  - Giniling
+  - Menudo
+  wantedFood: 
+  orderBubble: {fileID: 0}
+  orderText: {fileID: 0}
 --- !u!1 &1755937466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,8 +1967,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   served: 0
   hideOffset: 4
-  moveTime: 0.5
+  moveTime: 0.8
   stayTime: 0.8
+  possibleOrders:
+  - Adobo
+  - Afritada
+  - Giniling
+  - Menudo
+  wantedFood: 
+  orderBubble: {fileID: 0}
+  orderText: {fileID: 0}
 --- !u!61 &1755937468
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1922,17 +2011,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.3031056, y: 0.44070256}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.36, y: 3.53}
+    oldSize: {x: 4.81, y: 6.87}
     newSize: {x: 1.36, y: 3.53}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.36, y: 3.53}
+  m_Size: {x: 3.9291635, y: 6.392826}
   m_EdgeRadius: 0
 --- !u!212 &1755937469
 SpriteRenderer:
@@ -1983,7 +2072,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 1
-  m_Sprite: {fileID: 1820655877345388666, guid: 3e3e491f69fec8a45a43a3c977fa341b, type: 3}
+  m_Sprite: {fileID: 5223423503772008965, guid: e15b76ea8d4a5e04fa89fa4e341fe96f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2003,8 +2092,8 @@ Transform:
   m_GameObject: {fileID: 1755937466}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -0.76, z: 0}
-  m_LocalScale: {x: 2.0144453, y: 1.6360368, z: 1}
+  m_LocalPosition: {x: 0.94, y: -0.24, z: 0}
+  m_LocalScale: {x: 0.71471334, y: 0.72735274, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2146,6 +2235,187 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1996518468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1996518469}
+  - component: {fileID: 1996518471}
+  - component: {fileID: 1996518470}
+  m_Layer: 0
+  m_Name: OrderText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1996518469
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996518468}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.4716231, y: 1.3573477, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 540988874}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.21, y: 2.98}
+  m_SizeDelta: {x: 2.8162, y: 0.6544}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1996518470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996518468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Sample text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 5
+  m_fontSizeBase: 5
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656bu
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1996518471}
+  m_maskType: 0
+--- !u!23 &1996518471
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996518468}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 15
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2005108621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,10 +2519,11 @@ SceneRoots:
   - {fileID: 1692760912}
   - {fileID: 516231989}
   - {fileID: 1216543522}
-  - {fileID: 1603470866}
   - {fileID: 332990052}
+  - {fileID: 1603470866}
   - {fileID: 540988874}
   - {fileID: 1755937470}
   - {fileID: 1711945604}
   - {fileID: 2005108623}
   - {fileID: 225230405}
+  - {fileID: 1538651162}

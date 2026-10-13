@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlasticContainer : MonoBehaviour
 {
-    
+        public string currentFood = "";
         public Sprite emptySprite; 
         public Sprite filledSprite;
         public bool isFilled;
@@ -25,29 +25,35 @@ public class PlasticContainer : MonoBehaviour
         }
         
 
-        public void Fill()
+        public void Fill(string food)
         {
             if (isFilled) return;
             isFilled = true;
+            currentFood = food;
             sr.sprite = filledSprite;
         }
         void OnMouseUp()
-    {
-        if (!dragging) return;
-        dragging = false;
-
-        var hit = Physics2D.OverlapPoint(transform.position, LayerMask.GetMask("NPC"));
-        if (hit != null)
         {
-            var npc = hit.GetComponent<NPC>();
-            if (npc != null && npc.Serve())
+            if (!dragging) return;
+            dragging = false;
+            
+            var hit = Physics2D.OverlapPoint(transform.position, LayerMask.GetMask("NPC"));
+            if (hit != null)
             {
-                isFilled = false;
-                sr.sprite = emptySprite;
+                var npc = hit.GetComponent<NPC>();
+                if (npc != null)
+                {
+                    var result = npc.Serve(currentFood);
+                    if (result != NPC.ServeResult.NotReady)
+                    {
+                        isFilled = false;
+                        currentFood = "";
+                        sr.sprite = emptySprite;
+                    }
+                } 
             }
+            transform.position = startPos;
         }
-        transform.position = startPos;
-    }
         void OnMouseDown()
         {
             if (!isFilled) return;
