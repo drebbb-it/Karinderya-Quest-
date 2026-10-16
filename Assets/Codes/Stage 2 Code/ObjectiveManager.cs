@@ -46,6 +46,15 @@ public class ObjectiveManager : MonoBehaviour
                 }
 
                 UpdateUI();
+
+                // NEW
+                if (AllObjectivesCompleted())
+                {
+                    Debug.Log("Level Complete!");
+
+                    LevelUnlockManager.UnlockLevel3();
+                }
+
                 return;
             }
         }

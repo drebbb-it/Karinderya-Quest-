@@ -1388,50 +1388,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323851664}
   m_CullTransparentMesh: 1
---- !u!1 &354685832
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 354685833}
-  - component: {fileID: 354685834}
-  m_Layer: 0
-  m_Name: BackButtonManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &354685833
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354685832}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.72612, y: 3.33541, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &354685834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354685832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 922ccca0321cf9445a47ccc2b80c2d2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BackButtonScript
 --- !u!1 &372586083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,6 +2456,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1 &940015019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940015021}
+  - component: {fileID: 940015020}
+  m_Layer: 0
+  m_Name: BackButtonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &940015020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940015019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922ccca0321cf9445a47ccc2b80c2d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackButtonScript
+--- !u!4 &940015021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940015019}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.72612, y: 3.33541, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &955941460
 GameObject:
   m_ObjectHideFlags: 0
@@ -5257,16 +5257,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveManager
   objectives:
   - dishName: Afritada
-    targetAmount: 5
+    targetAmount: 0
     currentAmount: 0
   - dishName: Giniling
-    targetAmount: 5
+    targetAmount: 0
     currentAmount: 0
   - dishName: Adobo
-    targetAmount: 5
+    targetAmount: 1
     currentAmount: 0
   - dishName: Menudo
-    targetAmount: 5
+    targetAmount: 0
     currentAmount: 0
   objectiveText: {fileID: 1934458303}
 --- !u!1 &1830052842
@@ -5621,7 +5621,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 354685834}
+      - m_Target: {fileID: 940015020}
         m_TargetAssemblyTypeName: BackButtonScript, Assembly-CSharp
         m_MethodName: BackToLevelSelection
         m_Mode: 1
@@ -5630,7 +5630,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SceneManager.LoadScene("LevelSelection");
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1874193326
@@ -6747,4 +6747,4 @@ SceneRoots:
   - {fileID: 1723186926}
   - {fileID: 65301209}
   - {fileID: 372586085}
-  - {fileID: 354685833}
+  - {fileID: 940015021}
