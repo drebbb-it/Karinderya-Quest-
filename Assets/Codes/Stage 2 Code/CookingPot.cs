@@ -69,6 +69,7 @@ public class CookingPot : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (PauseManager.IsPaused) return;
         if (!isCooking && ingredientsInPot.Count > 0)
         {
             StartCoroutine(CookFood());
