@@ -21,7 +21,7 @@ public class RecipePopup : MonoBehaviour
 
     private void Update()
     {
-        if (popupOpen && Input.GetMouseButtonDown(0))
+        if (popupOpen && !PauseManager.IsPaused && Input.GetMouseButtonDown(0))
         {
             popupPanel.SetActive(false);
             popupOpen = false;

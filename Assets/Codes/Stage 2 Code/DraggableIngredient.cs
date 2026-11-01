@@ -17,17 +17,20 @@ public class    raggableIngredient : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (PauseManager.IsPaused) return;
         rb.gravityScale = 0;
         offset = transform.position - GetMouseWorldPosition();
     }
 
     void OnMouseUp()
     {
+        if (PauseManager.IsPaused) return;
         rb.gravityScale = 1;
     }
 
     void OnMouseDrag()
     {
+        if (PauseManager.IsPaused) return;
         transform.position = GetMouseWorldPosition() + offset;
     }
 

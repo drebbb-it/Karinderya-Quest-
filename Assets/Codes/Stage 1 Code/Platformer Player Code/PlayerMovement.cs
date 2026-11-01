@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (PauseManager.IsPaused) return;
         moveInput = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Jump"))
         {

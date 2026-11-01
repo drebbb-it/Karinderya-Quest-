@@ -19,6 +19,7 @@ public class HoverTooltip : MonoBehaviour
 
     void Update()
     {
+        if (PauseManager.IsPaused) { text.enabled = false; return; }
         if (!text.enabled) return;
         Vector3 p = cam.ScreenToWorldPoint(Input.mousePosition);
         p.z = 0;
