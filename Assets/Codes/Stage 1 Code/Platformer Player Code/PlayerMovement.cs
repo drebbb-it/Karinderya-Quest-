@@ -23,8 +23,13 @@ public class PlayerMovement : MonoBehaviour
     public float coyoteTime = 0.1f;
     public float jumpBufferTime = 0.1f;
 
+    [Header("Audio")] // NEW
+    [SerializeField] private AudioClip jumpSound; // NEW
+    [Range(0f, 1f)] [SerializeField] private float jumpVolume = 1f; // NEW
+
     private Rigidbody2D rb;
     private Animator anim; // Added Animator reference
+    private AudioSource audioSource; // NEW
     private float moveInput;
     private bool isGrounded;
     private bool jumpHeld;
@@ -37,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>(); // Cache Animator component
+        audioSource = GetComponent<AudioSource>(); // NEW
         rb.gravityScale = gravityScale;
 
         originalScale = transform.localScale;
@@ -122,6 +128,9 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+
+        if (jumpSound != null && audioSource != null) // NEW
+            audioSource.PlayOneShot(jumpSound, jumpVolume); // NEW
     }
 
     private void UpdateAnimationState()

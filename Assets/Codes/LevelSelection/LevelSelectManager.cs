@@ -86,4 +86,8 @@ public class LevelSelectManager : MonoBehaviour
 
         Debug.Log("Progress Reset!");
     }
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
