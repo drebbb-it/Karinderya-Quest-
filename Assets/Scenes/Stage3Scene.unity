@@ -1701,8 +1701,8 @@ Transform:
   m_GameObject: {fileID: 1358674311}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.79, y: 0.48, z: -3392.9998}
-  m_LocalScale: {x: 53.973297, y: 54.080917, z: 37.699997}
+  m_LocalPosition: {x: -2.54, y: -4.52, z: -3392.9998}
+  m_LocalScale: {x: 133.35722, y: 132.58136, z: 37.699997}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1426297611}
@@ -2294,6 +2294,51 @@ CapsuleCollider2D:
   m_Offset: {x: -0.029658569, y: -0.15142028}
   m_Size: {x: 3.424309, y: 3.9128406}
   m_Direction: 0
+--- !u!1 &1667754032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1667754033}
+  - component: {fileID: 1667754034}
+  m_Layer: 0
+  m_Name: VolumeLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1667754033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667754032}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.29605, y: -1.35562, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1667754034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667754032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f876828e45dc148999734e47bcaa07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VolumeLoader
+  myMixer: {fileID: 24100000, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
 --- !u!1 &1692760910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,3 +3252,4 @@ SceneRoots:
   - {fileID: 225230405}
   - {fileID: 1538651162}
   - {fileID: 1538515235}
+  - {fileID: 1667754033}

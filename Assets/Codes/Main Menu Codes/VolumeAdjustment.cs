@@ -5,5 +5,32 @@ using UnityEngine.UI;
 public class VolumeAdjustment : MonoBehaviour
 {
     [SerializeField] private AudioMixer myMixer;
+    [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider sfxSlider;
+
+    void Start()
+    {
+        // Load saved values (default 1 = full volume)
+        masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
+
+        SetMasterVolume();
+        SetMusicVolume();
+        SetSFXVolume();
+    }
+
+    public void SetMasterVolume() => Apply("MasterVolume", masterSlider.value);
+    public void SetMusicVolume() => Apply("MusicVolume", musicSlider.value);
+    public void SetSFXVolume() => Apply("SFXVolume", sfxSlider.value);
+
+    private void Apply(string parameter, float value)
+    {
+        // Sliders are linear (0.0001 to 1), mixers use decibels (logarithmic)
+        float dB = Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20f;
+        myMixer.SetFloat(parameter, dB);
+
+        PlayerPrefs.SetFloat(parameter, value);
+    }
 }
