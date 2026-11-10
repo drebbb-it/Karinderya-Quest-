@@ -19,6 +19,7 @@ public class    raggableIngredient : MonoBehaviour
     {
         if (PauseManager.IsPaused) return;
         if (CookbookUI.IsOpen)     return;
+        if (RecipePopup.IsOpen)    return;
         rb.gravityScale = 0;
         offset = transform.position - GetMouseWorldPosition();
     }
@@ -27,6 +28,7 @@ public class    raggableIngredient : MonoBehaviour
     {
         if (PauseManager.IsPaused) return;
         if (CookbookUI.IsOpen)     return;
+        if (RecipePopup.IsOpen)    return;
         rb.gravityScale = 1;
     }
 
@@ -34,6 +36,7 @@ public class    raggableIngredient : MonoBehaviour
     {
         if (PauseManager.IsPaused) return;
         if (CookbookUI.IsOpen)     return;
+        if (RecipePopup.IsOpen)    return;
         transform.position = GetMouseWorldPosition() + offset;
     }
 

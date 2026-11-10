@@ -71,6 +71,7 @@ public class CookingPot : MonoBehaviour
     {
         if (PauseManager.IsPaused) return;
         if (CookbookUI.IsOpen)     return;
+        if (RecipePopup.IsOpen)    return;
         if (!isCooking && ingredientsInPot.Count > 0)
         {
             StartCoroutine(CookFood());
@@ -132,7 +133,12 @@ public class CookingPot : MonoBehaviour
             stoveFire.SetActive(false);
         }
 
-        yield return new WaitForSeconds(2f);
+        float waitTime = 2f;
+        while (waitTime > 0f)
+        {
+            waitTime -= Time.deltaTime;
+            yield return null;
+        }
         
         if (potClosed != null)
         {

@@ -6,6 +6,8 @@ public class RecipePopup : MonoBehaviour
 {
     public static RecipePopup Instance;
 
+    public static bool IsOpen => Instance != null && Instance.popupOpen;
+
     [SerializeField] private GameObject popupPanel;
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI dishNameText;
