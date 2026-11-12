@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,17 @@ using TMPro;
 
 public class CookingPot : MonoBehaviour
 {
+    public static CookingPot Instance { get; private set; }
+
+    /// <summary>
+    /// Event invoked whenever ingredients in the pot are modified (added or cleared).
+    /// Passes the current read-only list of ingredient names.
+    /// </summary>
+    public static event Action<List<string>> OnIngredientsChanged;
+
     [Header("Ingredients")]
     public List<string> ingredientsInPot = new List<string>();
+
     [Header("Pot Sprites")]
     [SerializeField] private GameObject potClosed;
     [SerializeField] private GameObject potOpen;
@@ -21,6 +31,24 @@ public class CookingPot : MonoBehaviour
     [SerializeField] private GameObject stoveFire;
 
     private bool isCooking = false;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
 
     private void Start()
     {
@@ -43,6 +71,8 @@ public class CookingPot : MonoBehaviour
         {
             potOpen.SetActive(false);
         }
+
+        NotifyIngredientsChanged();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -54,6 +84,8 @@ public class CookingPot : MonoBehaviour
             ingredientsInPot.Add(ingredient.ingredientName);
 
             Debug.Log("Added: " + ingredient.ingredientName);
+
+            NotifyIngredientsChanged();
 
             IngredientSpawner spawner =
                 other.GetComponent<IngredientSpawner>();
@@ -126,6 +158,7 @@ public class CookingPot : MonoBehaviour
         RecipeManager.Instance.CheckRecipe(ingredientsInPot);
 
         ingredientsInPot.Clear();
+        NotifyIngredientsChanged();
 
         // Turn fire OFF
         if (stoveFire != null)
@@ -156,5 +189,10 @@ public class CookingPot : MonoBehaviour
         }
 
         isCooking = false;
+    }
+
+    public void NotifyIngredientsChanged()
+    {
+        OnIngredientsChanged?.Invoke(ingredientsInPot);
     }
 }
