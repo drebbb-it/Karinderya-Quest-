@@ -1,13 +1,20 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class VolumeAdjustment : MonoBehaviour
 {
+    [Header("Mixer & Sliders")]
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
+
+    [Header("Button SFX")]
+    [SerializeField] private AudioSource sfxSource;   // Output = SFX mixer group
+    [SerializeField] private AudioClip clickClip;
+    [SerializeField] private AudioClip hoverClip;
 
     void Start()
     {
@@ -19,6 +26,8 @@ public class VolumeAdjustment : MonoBehaviour
         SetMasterVolume();
         SetMusicVolume();
         SetSFXVolume();
+
+        SetupButtonSounds();
     }
 
     public void SetMasterVolume() => Apply("MasterVolume", masterSlider.value);
@@ -32,5 +41,37 @@ public class VolumeAdjustment : MonoBehaviour
         myMixer.SetFloat(parameter, dB);
 
         PlayerPrefs.SetFloat(parameter, value);
+    }
+
+    // ---------- Button sounds ----------
+
+    private void SetupButtonSounds()
+    {
+        Button[] buttons = FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        foreach (Button button in buttons)
+        {
+            Button b = button; // local copy for the lambdas
+
+            // Click
+            b.onClick.AddListener(() => PlaySFX(clickClip));
+
+            // Hover (pointer enters the button)
+            EventTrigger trigger = b.GetComponent<EventTrigger>();
+            if (trigger == null) trigger = b.gameObject.AddComponent<EventTrigger>();
+
+            var entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
+            entry.callback.AddListener(_ =>
+            {
+                if (b.interactable) PlaySFX(hoverClip);
+            });
+            trigger.triggers.Add(entry);
+        }
+    }
+
+    private void PlaySFX(AudioClip clip)
+    {
+        if (clip != null && sfxSource != null)
+            sfxSource.PlayOneShot(clip);
     }
 }
