@@ -75,7 +75,15 @@ public class IngredientPickup : MonoBehaviour
         _isClaimed = true;
         if (_collectSound != null)
         {
-            AudioSource.PlayClipAtPoint(_collectSound, transform.position);
+            AudioSource playerAudioSource = other.GetComponentInParent<AudioSource>();
+            if (playerAudioSource != null)
+            {
+                playerAudioSource.PlayOneShot(_collectSound);
+            }
+            else
+            {
+                Debug.LogError($"IngredientPickup {name} could not find an AudioSource on the collecting player.", other);
+            }
         }
         GameEvents.RaiseIngredientsCollected(_ingredientData);
         gameObject.SetActive(false);

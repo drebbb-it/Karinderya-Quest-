@@ -2339,6 +2339,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VolumeLoader
   myMixer: {fileID: 24100000, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
+  _sfxMixerGroup: {fileID: -4532634057650838038, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
+  _buttonClickClip: {fileID: 8300000, guid: bbdbecd496a1afc4287c58d861e830fd, type: 3}
+  _buttonHoverClip: {fileID: 8300000, guid: b4462bd55dc98e141b5968693b4fe7b5, type: 3}
 --- !u!1 &1692760910
 GameObject:
   m_ObjectHideFlags: 0

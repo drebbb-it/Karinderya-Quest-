@@ -1183,6 +1183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1795227880}
   - component: {fileID: 1795227879}
+  - component: {fileID: 1795227881}
   m_Layer: 0
   m_Name: LevelSelectManager
   m_TagString: Untagged
@@ -1213,6 +1214,22 @@ MonoBehaviour:
   level2LockedSprite: {fileID: -217664022612416668, guid: a5c6778bda93b8443b41bf8fb94afe62, type: 3}
   level3Sprite: {fileID: -495729893662499602, guid: 80d982d8464b54e40ad733cb3b13a66f, type: 3}
   level3LockedSprite: {fileID: -6588227421957159207, guid: 093e91de559dcbb4e9f6839e4113dc03, type: 3}
+--- !u!114 &1795227881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795227878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f876828e45dc148999734e47bcaa07, type: 3}
+  m_Name: ""
+  m_EditorClassIdentifier: Assembly-CSharp::VolumeLoader
+  myMixer: {fileID: 24100000, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
+  _sfxMixerGroup: {fileID: -4532634057650838038, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
+  _buttonClickClip: {fileID: 8300000, guid: bbdbecd496a1afc4287c58d861e830fd, type: 3}
+  _buttonHoverClip: {fileID: 8300000, guid: b4462bd55dc98e141b5968693b4fe7b5, type: 3}
 --- !u!4 &1795227880
 Transform:
   m_ObjectHideFlags: 0

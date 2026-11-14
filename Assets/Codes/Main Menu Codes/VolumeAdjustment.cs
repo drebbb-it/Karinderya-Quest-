@@ -27,7 +27,7 @@ public class VolumeAdjustment : MonoBehaviour
         SetMusicVolume();
         SetSFXVolume();
 
-        SetupButtonSounds();
+        ButtonSFXUtility.RegisterButtons(sfxSource, clickClip, hoverClip);
     }
 
     public void SetMasterVolume() => Apply("MasterVolume", masterSlider.value);
@@ -43,35 +43,46 @@ public class VolumeAdjustment : MonoBehaviour
         PlayerPrefs.SetFloat(parameter, value);
     }
 
-    // ---------- Button sounds ----------
+}
 
-    private void SetupButtonSounds()
+public static class ButtonSFXUtility
+{
+    public static void RegisterButtons(AudioSource sfxSource, AudioClip clickClip, AudioClip hoverClip)
     {
-        Button[] buttons = FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        if (sfxSource == null)
+        {
+            Debug.LogError("ButtonSFXUtility requires an AudioSource.");
+            return;
+        }
 
+        Button[] buttons = UnityEngine.Object.FindObjectsByType<Button>(FindObjectsInactive.Include);
         foreach (Button button in buttons)
         {
-            Button b = button; // local copy for the lambdas
+            Button target = button;
 
-            // Click
-            b.onClick.AddListener(() => PlaySFX(clickClip));
-
-            // Hover (pointer enters the button)
-            EventTrigger trigger = b.GetComponent<EventTrigger>();
-            if (trigger == null) trigger = b.gameObject.AddComponent<EventTrigger>();
-
-            var entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
-            entry.callback.AddListener(_ =>
+            if (clickClip != null)
             {
-                if (b.interactable) PlaySFX(hoverClip);
-            });
-            trigger.triggers.Add(entry);
-        }
-    }
+                target.onClick.AddListener(() => sfxSource.PlayOneShot(clickClip));
+            }
 
-    private void PlaySFX(AudioClip clip)
-    {
-        if (clip != null && sfxSource != null)
-            sfxSource.PlayOneShot(clip);
+            if (hoverClip != null)
+            {
+                EventTrigger trigger = target.GetComponent<EventTrigger>();
+                if (trigger == null)
+                {
+                    trigger = target.gameObject.AddComponent<EventTrigger>();
+                }
+
+                var entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
+                entry.callback.AddListener(_ =>
+                {
+                    if (target.interactable)
+                    {
+                        sfxSource.PlayOneShot(hoverClip);
+                    }
+                });
+                trigger.triggers.Add(entry);
+            }
+        }
     }
 }
