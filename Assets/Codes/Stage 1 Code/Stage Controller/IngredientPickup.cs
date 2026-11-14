@@ -6,6 +6,7 @@ public class IngredientPickup : MonoBehaviour
     [Header("Collectible Settings")]
     [SerializeField] private IngredientData _ingredientData;
     [SerializeField] private string _playerTag = "Player";
+    [SerializeField] private AudioClip _collectSound;
 
     [Header("Animation Settings")]
     [Tooltip("Enable gentle bobbing (floating up and down)")]
@@ -72,6 +73,10 @@ public class IngredientPickup : MonoBehaviour
             return;
         }
         _isClaimed = true;
+        if (_collectSound != null)
+        {
+            AudioSource.PlayClipAtPoint(_collectSound, transform.position);
+        }
         GameEvents.RaiseIngredientsCollected(_ingredientData);
         gameObject.SetActive(false);
     }

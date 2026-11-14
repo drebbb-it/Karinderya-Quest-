@@ -257,6 +257,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7148199410668528901, guid: 8ee1b7085ba8bb64a8b320c64577cb15, type: 3}
+    - target: {fileID: 8100222604333283480, guid: def89cd015f476748ad7d9b6fe5405d6, type: 3}
+      propertyPath: _collectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
     - target: {fileID: 8259344631430375388, guid: def89cd015f476748ad7d9b6fe5405d6, type: 3}
       propertyPath: m_Name
       value: Vegetables_02
@@ -687,6 +691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: fe26132871b774a4298de53eeb382b56, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -846,6 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 6c1b736c6761a5d4ab8c3238bf6bd97f, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -1005,6 +1011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 6c1b736c6761a5d4ab8c3238bf6bd97f, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -2067,6 +2074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: fe26132871b774a4298de53eeb382b56, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -2363,6 +2371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 6c1b736c6761a5d4ab8c3238bf6bd97f, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -3286,6 +3295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 9ab6802ff81c0cb4fa0a9c98a608abf4, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -11392,6 +11402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 9ab6802ff81c0cb4fa0a9c98a608abf4, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -11699,6 +11710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: fe26132871b774a4298de53eeb382b56, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -13348,6 +13360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 9ab6802ff81c0cb4fa0a9c98a608abf4, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -13507,6 +13520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 6c1b736c6761a5d4ab8c3238bf6bd97f, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -13666,6 +13680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: fe26132871b774a4298de53eeb382b56, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -13825,6 +13840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 9ab6802ff81c0cb4fa0a9c98a608abf4, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -13984,6 +14000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 6c1b736c6761a5d4ab8c3238bf6bd97f, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -14143,6 +14160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 9ab6802ff81c0cb4fa0a9c98a608abf4, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -14302,6 +14320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: fe26132871b774a4298de53eeb382b56, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -14461,6 +14480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 6c1b736c6761a5d4ab8c3238bf6bd97f, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -14620,6 +14640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 9ab6802ff81c0cb4fa0a9c98a608abf4, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -14779,6 +14800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: fe26132871b774a4298de53eeb382b56, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -14938,6 +14960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: 6c1b736c6761a5d4ab8c3238bf6bd97f, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
@@ -15097,6 +15120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IngredientPickup
   _ingredientData: {fileID: 11400000, guid: fe26132871b774a4298de53eeb382b56, type: 2}
   _playerTag: Player
+  _collectSound: {fileID: 8300000, guid: c24549aa7d0ab8040a3569e578ac6ed7, type: 3}
   _enableBobbing: 1
   _bobHeight: 0.2
   _bobFrequency: 2.2
