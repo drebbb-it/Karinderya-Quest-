@@ -10310,10 +10310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VictoryScreen
   _victoryPanel: {fileID: 1551229987}
-  _continueButton: {fileID: 669206401}
-  _exitButton: {fileID: 190439507}
-  _nextSceneName: LevelSelection
-  _mainMenuSceneName: MainMenu
+  _nextSceneName: Stage2Scene
 --- !u!1001 &1166961217
 PrefabInstance:
   m_ObjectHideFlags: 0

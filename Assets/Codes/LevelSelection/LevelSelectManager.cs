@@ -79,7 +79,8 @@ public class LevelSelectManager : MonoBehaviour
     }
     public void ResetProgress()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("Level2Unlocked");
+        PlayerPrefs.DeleteKey("Level3Unlocked");
         PlayerPrefs.Save();
 
         UpdateLevelButtons();

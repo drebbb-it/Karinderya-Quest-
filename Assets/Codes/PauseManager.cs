@@ -20,6 +20,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private Button levelSelectButton;
 
     public static bool IsPaused { get; private set; }
+    public static bool IsGameOver { get; private set; }
 
     // ── Bootstrap: runs ONCE at game start, subscribes to every future scene load ──
     // SceneManager.sceneLoaded fires on EVERY scene load (including Restart),
@@ -29,6 +30,7 @@ public class PauseManager : MonoBehaviour
     {
         // Reset state at game launch
         IsPaused = false;
+        IsGameOver = false;
         Time.timeScale = 1f;
 
         // Subscribe once; will fire for every scene from now on
@@ -40,6 +42,7 @@ public class PauseManager : MonoBehaviour
     {
         // Always guarantee clean state on every scene load
         IsPaused = false;
+        IsGameOver = false;
         Time.timeScale = 1f;
 
         // Auto-create PauseManager in every Stage scene if one isn't already there
@@ -65,6 +68,7 @@ public class PauseManager : MonoBehaviour
         // Guarantee clean state (static values survive domain reload in Editor)
         Time.timeScale = 1f;
         IsPaused = false;
+        IsGameOver = false;
 
         EnsureUI();
     }
@@ -81,6 +85,8 @@ public class PauseManager : MonoBehaviour
 
     private void Update()
     {
+        if (IsGameOver) return;
+
         // ESC key toggles pause — also closes cookbook first if it is open
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -93,12 +99,16 @@ public class PauseManager : MonoBehaviour
 
     public void TogglePause()
     {
+        if (IsGameOver) return;
+
         if (IsPaused) ResumeGame();
         else           PauseGame();
     }
 
     public void PauseGame()
     {
+        if (IsGameOver) return;
+
         IsPaused = true;
         Time.timeScale = 0f;
 
@@ -108,11 +118,25 @@ public class PauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        if (IsGameOver) return;
+
         IsPaused = false;
         Time.timeScale = 1f;
 
         if (pausePanel != null)  pausePanel.SetActive(false);
         if (pauseButton != null) pauseButton.gameObject.SetActive(true);
+    }
+
+    public static void LockForVictory()
+    {
+        IsGameOver = true;
+        IsPaused = false;
+        Time.timeScale = 0f;
+
+        if (Instance == null) return;
+
+        if (Instance.pausePanel != null) Instance.pausePanel.SetActive(false);
+        if (Instance.pauseButton != null) Instance.pauseButton.gameObject.SetActive(false);
     }
 
     public void RestartLevel()

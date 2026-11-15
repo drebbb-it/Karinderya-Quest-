@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class    raggableIngredient : MonoBehaviour
+public class DraggableIngredient : MonoBehaviour
 {
     private Vector3 offset;
     private Camera mainCam;

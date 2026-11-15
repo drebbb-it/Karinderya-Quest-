@@ -34,7 +34,7 @@ public class PlasticContainer : MonoBehaviour
         }
         void OnMouseUp()
         {
-            if (PauseManager.IsPaused) return;
+            if (PauseManager.IsPaused || PauseManager.IsGameOver) return;
             if (!dragging) return;
             dragging = false;
             
@@ -57,14 +57,14 @@ public class PlasticContainer : MonoBehaviour
         }
         void OnMouseDown()
         {
-            if (PauseManager.IsPaused) return;
+            if (PauseManager.IsPaused || PauseManager.IsGameOver) return;
             if (!isFilled) return;
             offset = transform.position - MouseWorld();
             dragging = true;
         }
         void OnMouseDrag()
         {
-            if (PauseManager.IsPaused) return;
+            if (PauseManager.IsPaused || PauseManager.IsGameOver) return;
             if (dragging)
             {
                 transform.position = MouseWorld() + offset;

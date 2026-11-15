@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (PauseManager.IsPaused) return;
+        if (PauseManager.IsPaused || PauseManager.IsGameOver) return;
         moveInput = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Jump"))
         {
@@ -98,6 +98,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (PauseManager.IsGameOver) return;
+
         float targetSpeed = moveInput * moveSpeed;
         float speedDifference = targetSpeed - rb.linearVelocity.x;
         float accelerationRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deacceleration;

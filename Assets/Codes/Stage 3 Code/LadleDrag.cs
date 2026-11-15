@@ -20,19 +20,19 @@ public class LadleDrag : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (PauseManager.IsPaused) return;
+        if (PauseManager.IsPaused || PauseManager.IsGameOver) return;
         offset = transform.position - MouseWorld();
     }
 
     void OnMouseDrag()
     {
-        if (PauseManager.IsPaused) return;
+        if (PauseManager.IsPaused || PauseManager.IsGameOver) return;
         transform.position = MouseWorld() + offset;
     }
 
     void OnMouseUp()
     {
-        if (PauseManager.IsPaused) return;
+        if (PauseManager.IsPaused || PauseManager.IsGameOver) return;
         Vector2 point = tip != null ? tip.position : transform.position;
         if (heldFood == "")
         {

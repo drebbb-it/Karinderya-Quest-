@@ -1,42 +1,34 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 /// <summary>
-/// Shows the Victory panel when the inventory is complete, freezes gameplay,
-/// and routes the Continue / Exit buttons to their scenes.
+/// Shows the Stage 2-style victory popup when the inventory is complete.
 /// </summary>
 public class VictoryScreen : MonoBehaviour
 {
-    [Header("UI")]
+    [Header("Legacy UI")]
     [SerializeField] private GameObject _victoryPanel;
-    [SerializeField] private Button _continueButton;
-    [SerializeField] private Button _exitButton;
 
     [Header("Scenes (must be added to Build Profiles > Scenes In Build)")]
-    [SerializeField] private string _nextSceneName = "LevelSelection";
-    [SerializeField] private string _mainMenuSceneName = "MainMenu";
+    [SerializeField] private string _nextSceneName = "Stage2Scene";
 
     private bool _isShown;
 
     private void Awake()
     {
         Time.timeScale = 1f; // recover from a previous frozen run
-        _victoryPanel.SetActive(false);
+        if (_victoryPanel != null) _victoryPanel.SetActive(false);
     }
 
     private void OnEnable()
     {
         GameEvents.OnInventoryComplete += HandleInventoryComplete;
-        _continueButton.onClick.AddListener(OnContinueClicked);
-        _exitButton.onClick.AddListener(OnExitClicked);
     }
 
     private void OnDisable()
     {
         GameEvents.OnInventoryComplete -= HandleInventoryComplete;
-        _continueButton.onClick.RemoveListener(OnContinueClicked);
-        _exitButton.onClick.RemoveListener(OnExitClicked);
         Time.timeScale = 1f;
     }
 
@@ -45,13 +37,32 @@ public class VictoryScreen : MonoBehaviour
         if (_isShown) return;
         _isShown = true;
 
-        _victoryPanel.SetActive(true);
-        Time.timeScale = 0f; // freezes physics and vehicles; UI buttons still work
+        LevelUnlockManager.UnlockLevel2();
+        PauseManager.LockForVictory();
+        GameObject victoryPanel = StageVictoryPopup.Create(
+            "STAGE CLEARED!",
+            "All ingredients have been collected!",
+            new[] { "NEXT LEVEL", "LEVEL SELECT", "PLAY AGAIN" },
+            new UnityAction[]
+            {
+                OnNextLevelClicked,
+                OnLevelSelectClicked,
+                OnRestartClicked
+            },
+            new[]
+            {
+                new Color(0.2f, 0.6f, 0.3f),
+                new Color(0.25f, 0.35f, 0.55f),
+                new Color(0.45f, 0.25f, 0.25f)
+            });
+        victoryPanel.SetActive(true);
     }
 
-    private void OnContinueClicked() => LoadScene(_nextSceneName);
+    private void OnNextLevelClicked() => LoadScene(_nextSceneName);
 
-    private void OnExitClicked() => LoadScene(_mainMenuSceneName);
+    private void OnLevelSelectClicked() => LoadScene("LevelSelection");
+
+    private void OnRestartClicked() => LoadScene(SceneManager.GetActiveScene().name);
 
     private void LoadScene(string sceneName)
     {
