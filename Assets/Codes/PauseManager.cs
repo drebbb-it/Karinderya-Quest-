@@ -141,18 +141,13 @@ public class PauseManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        // Reset all state before reloading
-        IsPaused = false;
-        Time.timeScale = 1f;
         string currentScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentScene);
+        SFXSceneLoad.LoadSceneAfterDelay(this, currentScene);
     }
 
     public void LoadLevelSelect()
     {
-        IsPaused = false;
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("LevelSelection");
+        SFXSceneLoad.LoadSceneAfterDelay(this, "LevelSelection");
     }
 
     private void EnsureUI()

@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class VolumeAdjustment : MonoBehaviour
@@ -47,6 +49,16 @@ public class VolumeAdjustment : MonoBehaviour
 
 public static class ButtonSFXUtility
 {
+    private static AudioSource registeredSfxSource;
+    private static AudioClip registeredClickClip;
+    private static AudioClip registeredHoverClip;
+    private static readonly HashSet<Button> registeredButtons = new HashSet<Button>();
+
+    static ButtonSFXUtility()
+    {
+        SceneManager.sceneLoaded += (_, __) => registeredButtons.Clear();
+    }
+
     public static void RegisterButtons(AudioSource sfxSource, AudioClip clickClip, AudioClip hoverClip)
     {
         if (sfxSource == null)
@@ -55,34 +67,51 @@ public static class ButtonSFXUtility
             return;
         }
 
+        registeredSfxSource = sfxSource;
+        registeredClickClip = clickClip;
+        registeredHoverClip = hoverClip;
+
         Button[] buttons = UnityEngine.Object.FindObjectsByType<Button>(FindObjectsInactive.Include);
         foreach (Button button in buttons)
         {
-            Button target = button;
+            RegisterButton(button);
+        }
+    }
 
-            if (clickClip != null)
-            {
-                target.onClick.AddListener(() => sfxSource.PlayOneShot(clickClip));
-            }
+    public static void RegisterButton(Button target)
+    {
+        if (target == null) return;
+        if (registeredSfxSource == null || (registeredClickClip == null && registeredHoverClip == null)) return;
+        if (!registeredButtons.Add(target)) return;
 
-            if (hoverClip != null)
+        if (registeredClickClip != null)
+        {
+            target.onClick.AddListener(() =>
             {
-                EventTrigger trigger = target.GetComponent<EventTrigger>();
-                if (trigger == null)
+                if (registeredSfxSource != null)
                 {
-                    trigger = target.gameObject.AddComponent<EventTrigger>();
+                    registeredSfxSource.PlayOneShot(registeredClickClip);
                 }
+            });
+        }
 
-                var entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
-                entry.callback.AddListener(_ =>
-                {
-                    if (target.interactable)
-                    {
-                        sfxSource.PlayOneShot(hoverClip);
-                    }
-                });
-                trigger.triggers.Add(entry);
+        if (registeredHoverClip != null)
+        {
+            EventTrigger trigger = target.GetComponent<EventTrigger>();
+            if (trigger == null)
+            {
+                trigger = target.gameObject.AddComponent<EventTrigger>();
             }
+
+            var entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
+            entry.callback.AddListener(_ =>
+            {
+                if (target.interactable && registeredSfxSource != null)
+                {
+                    registeredSfxSource.PlayOneShot(registeredHoverClip);
+                }
+            });
+            trigger.triggers.Add(entry);
         }
     }
 }

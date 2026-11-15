@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class LevelSelectManager : MonoBehaviour
 {
@@ -59,14 +58,14 @@ public class LevelSelectManager : MonoBehaviour
 
     public void OpenLevel1()
     {
-        SceneManager.LoadScene("Stage1Scene");
+        SFXSceneLoad.LoadSceneAfterDelay(this, "Stage1Scene");
     }
 
     public void OpenLevel2()
     {
         if (PlayerPrefs.GetInt("Level2Unlocked", 0) == 1)
         {
-            SceneManager.LoadScene("Stage2Scene");
+            SFXSceneLoad.LoadSceneAfterDelay(this, "Stage2Scene");
         }
     }
 
@@ -74,7 +73,7 @@ public class LevelSelectManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Level3Unlocked", 0) == 1)
         {
-            SceneManager.LoadScene("Stage3Scene");
+            SFXSceneLoad.LoadSceneAfterDelay(this, "Stage3Scene");
         }
     }
     public void ResetProgress()
@@ -89,6 +88,6 @@ public class LevelSelectManager : MonoBehaviour
     }
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SFXSceneLoad.LoadSceneAfterDelay(this, "MainMenu");
     }
 }

@@ -151,5 +151,6 @@ public static class StageVictoryPopup
         text.alignment = TextAnchor.MiddleCenter;
 
         button.onClick.AddListener(action);
+        ButtonSFXUtility.RegisterButton(button);
     }
 }

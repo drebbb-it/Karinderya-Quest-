@@ -43,10 +43,21 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] private Button restartButton;
 
     private bool isLevelCompleted = false;
+    private bool waitingForFinalRecipePopup;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void OnEnable()
+    {
+        RecipePopup.PopupDismissed += OnRecipePopupDismissed;
+    }
+
+    private void OnDisable()
+    {
+        RecipePopup.PopupDismissed -= OnRecipePopupDismissed;
     }
 
     private void Start()
@@ -141,6 +152,21 @@ public class ObjectiveManager : MonoBehaviour
 
         LevelUnlockManager.UnlockLevel3();
 
+        if (RecipePopup.IsOpen)
+        {
+            waitingForFinalRecipePopup = true;
+        }
+        else
+        {
+            ShowVictoryPopup();
+        }
+    }
+
+    private void OnRecipePopupDismissed()
+    {
+        if (!waitingForFinalRecipePopup) return;
+
+        waitingForFinalRecipePopup = false;
         ShowVictoryPopup();
     }
 
@@ -155,21 +181,18 @@ public class ObjectiveManager : MonoBehaviour
 
     public void OnNextLevelClicked()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Stage3Scene");
+        SFXSceneLoad.LoadSceneAfterDelay(this, "Stage3Scene");
     }
 
     public void OnLevelSelectClicked()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("LevelSelection");
+        SFXSceneLoad.LoadSceneAfterDelay(this, "LevelSelection");
     }
 
     public void OnRestartClicked()
     {
-        Time.timeScale = 1f;
         string currentScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentScene);
+        SFXSceneLoad.LoadSceneAfterDelay(this, currentScene);
     }
 
     private void WireVictoryButtons()
@@ -346,6 +369,7 @@ public class ObjectiveManager : MonoBehaviour
         txt.alignment = TextAnchor.MiddleCenter;
 
         btn.onClick.AddListener(action);
+        ButtonSFXUtility.RegisterButton(btn);
         return btn;
     }
 }

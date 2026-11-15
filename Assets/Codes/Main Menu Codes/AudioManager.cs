@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MusicPlayer : MonoBehaviour
 {
     private static MusicPlayer instance;
+    private AudioSource musicSource;
 
     [SerializeField] private string[] musicScenes = { "MainMenu", "LevelSelection" };
 
@@ -16,16 +17,26 @@ public class MusicPlayer : MonoBehaviour
         }
 
         instance = this;
+        musicSource = GetComponent<AudioSource>();
+        if (musicSource == null)
+        {
+            Debug.LogError("MusicPlayer requires an AudioSource component.", this);
+            return;
+        }
+
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Not a music scene? Remove the player so the music stops.
         if (System.Array.IndexOf(musicScenes, scene.name) < 0)
         {
-            Destroy(gameObject);
+            musicSource.Stop();
+        }
+        else if (!musicSource.isPlaying)
+        {
+            musicSource.Play();
         }
     }
 

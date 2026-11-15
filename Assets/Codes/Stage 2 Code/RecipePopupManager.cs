@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 public class RecipePopup : MonoBehaviour
 {
     public static RecipePopup Instance;
+    public static event Action PopupDismissed;
 
     public static bool IsOpen => Instance != null && Instance.popupOpen;
 
@@ -27,6 +29,7 @@ public class RecipePopup : MonoBehaviour
         {
             popupPanel.SetActive(false);
             popupOpen = false;
+            PopupDismissed?.Invoke();
         }
     }
 
