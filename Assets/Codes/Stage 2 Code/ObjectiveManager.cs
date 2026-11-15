@@ -38,6 +38,7 @@ public class ObjectiveManager : MonoBehaviour
 
     [Header("Victory Popup (Optional - Auto-created if null)")]
     [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private AudioClip levelUpSound;
     [SerializeField] private Button nextLevelButton;
     [SerializeField] private Button levelSelectButton;
     [SerializeField] private Button restartButton;
@@ -176,6 +177,7 @@ public class ObjectiveManager : MonoBehaviour
         {
             victoryPanel.SetActive(true);
         }
+        ButtonSFXUtility.PlayOneShot(levelUpSound);
         Time.timeScale = 0f; // Freeze game scene on completion
     }
 

@@ -9,6 +9,7 @@ public class VictoryScreen : MonoBehaviour
 {
     [Header("Legacy UI")]
     [SerializeField] private GameObject _victoryPanel;
+    [SerializeField] private AudioClip levelUpSound;
 
     [Header("Scenes (must be added to Build Profiles > Scenes In Build)")]
     [SerializeField] private string _nextSceneName = "Stage2Scene";
@@ -56,6 +57,7 @@ public class VictoryScreen : MonoBehaviour
                 new Color(0.45f, 0.25f, 0.25f)
             });
         victoryPanel.SetActive(true);
+        ButtonSFXUtility.PlayOneShot(levelUpSound);
     }
 
     private void OnNextLevelClicked() => LoadScene(_nextSceneName);

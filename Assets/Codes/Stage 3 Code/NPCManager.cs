@@ -8,6 +8,7 @@ public class NPCManager : MonoBehaviour
     public NPC[] npcs;                // ayon sa pagkakasunod-sunod
     public float delayBetween = 1.5f; // hintay bago lumabas ang susunod
     private bool completionShown;
+    [SerializeField] private AudioClip levelUpSound;
 
     IEnumerator Start()
     {
@@ -46,6 +47,7 @@ public class NPCManager : MonoBehaviour
                 new Color(0.45f, 0.25f, 0.25f)
             });
         popup.SetActive(true);
+        ButtonSFXUtility.PlayOneShot(levelUpSound);
     }
 
     private void LoadLevelSelection()

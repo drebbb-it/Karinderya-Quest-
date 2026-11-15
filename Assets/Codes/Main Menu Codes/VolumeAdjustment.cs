@@ -114,4 +114,21 @@ public static class ButtonSFXUtility
             trigger.triggers.Add(entry);
         }
     }
+
+    public static void PlayOneShot(AudioClip clip)
+    {
+        if (clip == null)
+        {
+            Debug.LogError("ButtonSFXUtility cannot play a null audio clip.");
+            return;
+        }
+
+        if (registeredSfxSource == null)
+        {
+            Debug.LogError("ButtonSFXUtility requires a registered AudioSource to play SFX.");
+            return;
+        }
+
+        registeredSfxSource.PlayOneShot(clip);
+    }
 }

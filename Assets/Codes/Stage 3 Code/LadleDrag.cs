@@ -5,6 +5,7 @@ public class LadleDrag : MonoBehaviour
     public Sprite emptyLadle;
     public Sprite filledLadle;
     public Transform tip;
+    [SerializeField] private Collider2D trashCan;
     Vector3 startPos;
     Vector3 offset;
     Camera cam;
@@ -49,15 +50,23 @@ public class LadleDrag : MonoBehaviour
         }
         else
         {
-            var hit = Physics2D.OverlapPoint(point, LayerMask.GetMask("DropZone"));
-            if (hit)
+            if (trashCan != null && trashCan.OverlapPoint(point))
             {
-                var plastic = hit.GetComponent<PlasticContainer>();
-                if (plastic != null && !plastic.isFilled)
+                heldFood = "";
+                sr.sprite = emptyLadle;
+            }
+            else
+            {
+                var hit = Physics2D.OverlapPoint(point, LayerMask.GetMask("DropZone"));
+                if (hit)
                 {
-                    plastic.Fill(heldFood);
-                    heldFood = "";
-                    sr.sprite = emptyLadle;
+                    var plastic = hit.GetComponent<PlasticContainer>();
+                    if (plastic != null && !plastic.isFilled)
+                    {
+                        plastic.Fill(heldFood);
+                        heldFood = "";
+                        sr.sprite = emptyLadle;
+                    }
                 }
             }
         }

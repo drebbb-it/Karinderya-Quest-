@@ -5755,6 +5755,7 @@ MonoBehaviour:
   maxTargetAmount: 5
   objectiveText: {fileID: 1934458303}
   victoryPanel: {fileID: 0}
+  levelUpSound: {fileID: 8300000, guid: 5ed55b78426a0664aa619314422ee46e, type: 3}
   nextLevelButton: {fileID: 0}
   levelSelectButton: {fileID: 0}
   restartButton: {fileID: 0}
