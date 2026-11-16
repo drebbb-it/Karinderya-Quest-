@@ -20,10 +20,10 @@ public class VolumeAdjustment : MonoBehaviour
 
     void Start()
     {
-        // Load saved values (default 1 = full volume)
-        masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 1f);
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        // Default volume is 50%; saved player settings take precedence.
+        masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 0.5f);
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
 
         SetMasterVolume();
         SetMusicVolume();

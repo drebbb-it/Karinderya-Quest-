@@ -23,6 +23,7 @@ public class CookingPot : MonoBehaviour
 
     [Header("Cooking Settings")]
     [SerializeField] private float cookingTime = 5f;
+    [SerializeField] private AudioClip cookingSfx;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI timerText;
@@ -115,6 +116,7 @@ public class CookingPot : MonoBehaviour
     private IEnumerator CookFood()
     {
         isCooking = true;
+        ButtonSFXUtility.PlayOneShot(cookingSfx);
         
         if (potClosed != null)
         {

@@ -219,7 +219,7 @@ MonoBehaviour:
   _nameText: {fileID: 1556574652754542774}
   _countText: {fileID: 1110937888792324481}
   _checkMark: {fileID: 1307686627617826862}
-  _pendingColor: {r: 1, g: 1, b: 1, a: 1}
+  _pendingColor: {r: 0.91764706, g: 1, b: 0, a: 1}
   _completeColor: {r: 0.6, g: 1, b: 0.6, a: 1}
   _useStrikethrough: 1
 --- !u!1 &5785560752649462825
@@ -297,8 +297,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255594
+  m_fontColor: {r: 0.91764706, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -457,8 +457,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255594
+  m_fontColor: {r: 0.91764706, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

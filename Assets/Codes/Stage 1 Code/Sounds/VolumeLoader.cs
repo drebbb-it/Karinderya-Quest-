@@ -18,7 +18,7 @@ public class VolumeLoader : MonoBehaviour
 
     private void Apply(string parameter)
     {
-        float value = PlayerPrefs.GetFloat(parameter, 1f);
+        float value = PlayerPrefs.GetFloat(parameter, 0.5f);
         float dB = Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20f;
         myMixer.SetFloat(parameter, dB);
     }

@@ -4393,6 +4393,7 @@ MonoBehaviour:
   potClosed: {fileID: 1084026209}
   potOpen: {fileID: 1213771203}
   cookingTime: 5
+  cookingSfx: {fileID: 8300000, guid: 47ffd12306af3a744a1e04f561a66986, type: 3}
   timerText: {fileID: 1178620833}
   stoveFire: {fileID: 1046092991}
 --- !u!50 &1383928288
