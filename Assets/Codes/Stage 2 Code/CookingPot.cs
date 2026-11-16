@@ -77,6 +77,8 @@ public class CookingPot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isCooking) return;
+
         Ingredient ingredient = other.GetComponent<Ingredient>();
 
         if (ingredient != null)

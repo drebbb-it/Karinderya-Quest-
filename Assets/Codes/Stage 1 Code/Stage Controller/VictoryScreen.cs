@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 /// <summary>
-/// Shows the Stage 2-style victory popup when the inventory is complete.
+/// Shows the Stage 1 result popup when the inventory is complete or time expires.
 /// </summary>
 public class VictoryScreen : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class VictoryScreen : MonoBehaviour
     [Header("Scenes (must be added to Build Profiles > Scenes In Build)")]
     [SerializeField] private string _nextSceneName = "Stage2Scene";
 
-    private bool _isShown;
+    private bool _isResultShown;
 
     private void Awake()
     {
@@ -25,18 +25,20 @@ public class VictoryScreen : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnInventoryComplete += HandleInventoryComplete;
+        GameEvents.OnTimerExpired += HandleTimerExpired;
     }
 
     private void OnDisable()
     {
         GameEvents.OnInventoryComplete -= HandleInventoryComplete;
+        GameEvents.OnTimerExpired -= HandleTimerExpired;
         Time.timeScale = 1f;
     }
 
     private void HandleInventoryComplete()
     {
-        if (_isShown) return;
-        _isShown = true;
+        if (_isResultShown) return;
+        _isResultShown = true;
 
         LevelUnlockManager.UnlockLevel2();
         PauseManager.LockForVictory();
@@ -58,6 +60,29 @@ public class VictoryScreen : MonoBehaviour
             });
         victoryPanel.SetActive(true);
         ButtonSFXUtility.PlayOneShot(levelUpSound);
+    }
+
+    private void HandleTimerExpired()
+    {
+        if (_isResultShown) return;
+        _isResultShown = true;
+
+        PauseManager.LockForGameOver();
+        GameObject defeatPanel = StageVictoryPopup.Create(
+            "TIME'S UP!",
+            "You ran out of time before collecting all ingredients.",
+            new[] { "PLAY AGAIN", "LEVEL SELECT" },
+            new UnityAction[]
+            {
+                OnRestartClicked,
+                OnLevelSelectClicked
+            },
+            new[]
+            {
+                new Color(0.45f, 0.25f, 0.25f),
+                new Color(0.25f, 0.35f, 0.55f)
+            });
+        defeatPanel.SetActive(true);
     }
 
     private void OnNextLevelClicked() => LoadScene(_nextSceneName);

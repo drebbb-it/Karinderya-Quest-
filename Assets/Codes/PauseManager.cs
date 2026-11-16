@@ -129,6 +129,11 @@ public class PauseManager : MonoBehaviour
 
     public static void LockForVictory()
     {
+        LockForGameOver();
+    }
+
+    public static void LockForGameOver()
+    {
         IsGameOver = true;
         IsPaused = false;
         Time.timeScale = 0f;

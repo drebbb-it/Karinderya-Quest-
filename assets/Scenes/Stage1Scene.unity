@@ -10068,7 +10068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VictoryScreen
   _victoryPanel: {fileID: 0}
-  levelUpSound: {fileID: 8300000, guid: 5ed55b78426a0664aa619314422ee46e, type: 3}
+  levelUpSound: {fileID: 8300000, guid: d61969237c08e894b9437902b406b375, type: 3}
   _nextSceneName: Stage2Scene
 --- !u!1001 &1166961217
 PrefabInstance:
@@ -12419,7 +12419,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 9eb0157db060a9248803e42551f6b8ff, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

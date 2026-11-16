@@ -6,6 +6,7 @@ public class PlasticContainer : MonoBehaviour
         public Sprite emptySprite; 
         public Sprite filledSprite;
         public bool isFilled;
+        [SerializeField] private AudioClip rejectionSound;
 
         SpriteRenderer sr;
         Camera cam;
@@ -45,6 +46,11 @@ public class PlasticContainer : MonoBehaviour
                 if (npc != null)
                 {
                     var result = npc.Serve(currentFood);
+                    if (result == NPC.ServeResult.Wrong)
+                    {
+                        ButtonSFXUtility.PlayOneShot(rejectionSound);
+                    }
+
                     if (result != NPC.ServeResult.NotReady)
                     {
                         isFilled = false;

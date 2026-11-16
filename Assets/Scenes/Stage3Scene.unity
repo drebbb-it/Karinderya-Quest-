@@ -494,14 +494,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337198764}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.77, y: -2.47, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.030951774, w: 0.99952096}
+  m_LocalPosition: {x: 7.81, y: -0.43, z: 0}
   m_LocalScale: {x: 0.87725276, y: 0.75470406, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1369007068}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.547}
 --- !u!114 &337198766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2148,7 +2148,7 @@ MonoBehaviour:
   - {fileID: 1755937467}
   - {fileID: 1711945606}
   delayBetween: 1.5
-  levelUpSound: {fileID: 8300000, guid: 5ed55b78426a0664aa619314422ee46e, type: 3}
+  levelUpSound: {fileID: 8300000, guid: d61969237c08e894b9437902b406b375, type: 3}
 --- !u!1 &1603470864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,6 +2259,7 @@ MonoBehaviour:
   emptySprite: {fileID: 4268620782627232472, guid: 90bad67d74f2034479b78c07e180404e, type: 3}
   filledSprite: {fileID: 3627025915171443396, guid: def69979a3a4e5940819d405627287fa, type: 3}
   isFilled: 0
+  rejectionSound: {fileID: 8300000, guid: 973367e0c0d080d46915fe2bf9af5192, type: 3}
 --- !u!70 &1603470868
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3263,8 +3264,8 @@ Transform:
   m_GameObject: {fileID: 2080236000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.65, y: -3.95, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalPosition: {x: 7.6536, y: -3.6017, z: 0}
+  m_LocalScale: {x: 1.0992651, y: 0.8651011, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3353,6 +3354,9 @@ BoxCollider2D:
   m_ForceReceiveLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -3360,17 +3364,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.92, y: 1.605}
+  m_Offset: {x: 0.029402018, y: -0.0061745644}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.84, y: 3.21}
     newSize: {x: 1.84, y: 3.21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.84, y: 3.21}
+  m_Size: {x: 1.7935348, y: 3.241681}
   m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -13,9 +13,11 @@ public static class StageVictoryPopup
         Color[] buttonColors)
     {
         if (buttonLabels == null || buttonActions == null || buttonColors == null ||
-            buttonLabels.Length != 3 || buttonActions.Length != 3 || buttonColors.Length != 3)
+            buttonLabels.Length != buttonActions.Length ||
+            buttonLabels.Length != buttonColors.Length ||
+            (buttonLabels.Length != 2 && buttonLabels.Length != 3))
         {
-            throw new ArgumentException("A victory popup requires exactly three button labels, actions, and colors.");
+            throw new ArgumentException("A stage result popup requires two or three matching button labels, actions, and colors.");
         }
 
         GameObject canvasObject = new GameObject("StageVictoryOverlayCanvas");
@@ -51,7 +53,7 @@ public static class StageVictoryPopup
         boxTransform.anchorMax = new Vector2(0.5f, 0.5f);
         boxTransform.pivot = new Vector2(0.5f, 0.5f);
         boxTransform.anchoredPosition = Vector2.zero;
-        boxTransform.sizeDelta = new Vector2(460f, 380f);
+        boxTransform.sizeDelta = new Vector2(460f, buttonLabels.Length == 2 ? 320f : 380f);
         box.GetComponent<Image>().color = new Color(0.12f, 0.12f, 0.15f, 0.96f);
 
         CreateText(box.transform, "TitleText", title, standardFont, 32, FontStyle.Bold,
@@ -59,7 +61,13 @@ public static class StageVictoryPopup
         CreateText(box.transform, "SubtitleText", subtitle, standardFont, 18, FontStyle.Normal,
             Color.white, new Vector2(0f, -75f), 35f);
 
-        Vector2[] buttonPositions =
+        Vector2[] buttonPositions = buttonLabels.Length == 2
+            ? new[]
+            {
+                new Vector2(0f, -155f),
+                new Vector2(0f, -225f)
+            }
+            : new[]
         {
             new Vector2(0f, -140f),
             new Vector2(0f, -210f),
