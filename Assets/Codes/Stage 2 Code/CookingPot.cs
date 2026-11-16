@@ -40,6 +40,12 @@ public class CookingPot : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        if (GetComponent<SpriteHighlight>() == null)
+        {
+            gameObject.AddComponent<SpriteHighlight>();
+        }
+
         Instance = this;
     }
 

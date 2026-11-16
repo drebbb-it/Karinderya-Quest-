@@ -6,6 +6,14 @@ public class DraggableIngredient : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
 
+    void Awake()
+    {
+        if (GetComponent<SpriteHighlight>() == null)
+        {
+            gameObject.AddComponent<SpriteHighlight>();
+        }
+    }
+
     void Start()
     {
         mainCam = Camera.main;

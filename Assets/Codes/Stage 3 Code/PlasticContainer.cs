@@ -5,6 +5,10 @@ public class PlasticContainer : MonoBehaviour
         public string currentFood = "";
         public Sprite emptySprite; 
         public Sprite filledSprite;
+        public Sprite adoboBagSprite;
+        public Sprite afritadaBagSprite;
+        public Sprite ginilingBagSprite;
+        public Sprite menudoBagSprite;
         public bool isFilled;
         [SerializeField] private AudioClip rejectionSound;
 
@@ -17,6 +21,10 @@ public class PlasticContainer : MonoBehaviour
         void Awake()
         {
             sr = GetComponent<SpriteRenderer>();
+            if (GetComponent<SpriteHighlight>() == null)
+            {
+                gameObject.AddComponent<SpriteHighlight>();
+            }
         }
         void Start()
         {
@@ -31,7 +39,38 @@ public class PlasticContainer : MonoBehaviour
             if (isFilled) return;
             isFilled = true;
             currentFood = food;
-            sr.sprite = filledSprite;
+            sr.sprite = GetBagSprite(food);
+        }
+
+        private Sprite GetBagSprite(string food)
+        {
+            Sprite bagSprite;
+            switch (food)
+            {
+                case "Adobo":
+                    bagSprite = adoboBagSprite;
+                    break;
+                case "Afritada":
+                    bagSprite = afritadaBagSprite;
+                    break;
+                case "Giniling":
+                    bagSprite = ginilingBagSprite;
+                    break;
+                case "Menudo":
+                    bagSprite = menudoBagSprite;
+                    break;
+                default:
+                    bagSprite = null;
+                    break;
+            }
+
+            if (bagSprite == null)
+            {
+                Debug.LogError($"PlasticContainer has no bag sprite configured for '{food}'.", this);
+                return filledSprite;
+            }
+
+            return bagSprite;
         }
         void OnMouseUp()
         {

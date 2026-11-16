@@ -12,6 +12,14 @@ public class LadleDrag : MonoBehaviour
     SpriteRenderer sr;
     string heldFood = "";
 
+    void Awake()
+    {
+        if (GetComponent<SpriteHighlight>() == null)
+        {
+            gameObject.AddComponent<SpriteHighlight>();
+        }
+    }
+
     void Start()
     {
         cam = Camera.main;

@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 98872493}
   - component: {fileID: 98872492}
   - component: {fileID: 98872491}
+  - component: {fileID: 7000000000000000001}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -899,6 +900,7 @@ GameObject:
   - component: {fileID: 253321440}
   - component: {fileID: 253321439}
   - component: {fileID: 253321438}
+  - component: {fileID: 7000000000000000002}
   m_Layer: 0
   m_Name: BellPepper
   m_TagString: Untagged
@@ -1934,6 +1936,7 @@ GameObject:
   - component: {fileID: 537461311}
   - component: {fileID: 537461310}
   - component: {fileID: 537461309}
+  - component: {fileID: 7000000000000000003}
   m_Layer: 0
   m_Name: Patis
   m_TagString: Untagged
@@ -2190,6 +2193,7 @@ GameObject:
   - component: {fileID: 645899884}
   - component: {fileID: 645899883}
   - component: {fileID: 645899882}
+  - component: {fileID: 7000000000000000004}
   m_Layer: 0
   m_Name: TomatoSauce
   m_TagString: Untagged
@@ -3131,6 +3135,7 @@ GameObject:
   - component: {fileID: 1045734735}
   - component: {fileID: 1045734734}
   - component: {fileID: 1045734733}
+  - component: {fileID: 7000000000000000005}
   m_Layer: 0
   m_Name: BayLeaves
   m_TagString: Untagged
@@ -3834,6 +3839,7 @@ GameObject:
   - component: {fileID: 1260927974}
   - component: {fileID: 1260927973}
   - component: {fileID: 1260927972}
+  - component: {fileID: 7000000000000000006}
   m_Layer: 0
   m_Name: Onion
   m_TagString: Untagged
@@ -4219,6 +4225,7 @@ GameObject:
   - component: {fileID: 1383928285}
   - component: {fileID: 1383928288}
   - component: {fileID: 1383928289}
+  - component: {fileID: 7000000000000000007}
   m_Layer: 0
   m_Name: Cooker
   m_TagString: Untagged
@@ -4533,6 +4540,7 @@ GameObject:
   - component: {fileID: 1484658847}
   - component: {fileID: 1484658846}
   - component: {fileID: 1484658845}
+  - component: {fileID: 7000000000000000008}
   m_Layer: 0
   m_Name: Potato
   m_TagString: Untagged
@@ -4897,6 +4905,7 @@ GameObject:
   - component: {fileID: 1664764128}
   - component: {fileID: 1664764127}
   - component: {fileID: 1664764126}
+  - component: {fileID: 7000000000000000009}
   m_Layer: 0
   m_Name: GroundPork
   m_TagString: Untagged
@@ -5376,6 +5385,7 @@ GameObject:
   - component: {fileID: 1808208495}
   - component: {fileID: 1808208496}
   - component: {fileID: 1808208497}
+  - component: {fileID: 7000000000000000010}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Untagged
@@ -5775,6 +5785,7 @@ GameObject:
   - component: {fileID: 1830052846}
   - component: {fileID: 1830052845}
   - component: {fileID: 1830052844}
+  - component: {fileID: 7000000000000000011}
   m_Layer: 0
   m_Name: Garlic
   m_TagString: Untagged
@@ -6177,6 +6188,7 @@ GameObject:
   - component: {fileID: 1899650857}
   - component: {fileID: 1899650856}
   - component: {fileID: 1899650855}
+  - component: {fileID: 7000000000000000012}
   m_Layer: 0
   m_Name: Vinegar
   m_TagString: Untagged
@@ -6428,6 +6440,7 @@ GameObject:
   - component: {fileID: 1932730179}
   - component: {fileID: 1932730178}
   - component: {fileID: 1932730177}
+  - component: {fileID: 7000000000000000013}
   m_Layer: 0
   m_Name: SoySauce
   m_TagString: Untagged
@@ -6819,6 +6832,7 @@ GameObject:
   - component: {fileID: 2073995210}
   - component: {fileID: 2073995209}
   - component: {fileID: 2073995208}
+  - component: {fileID: 7000000000000000014}
   m_Layer: 0
   m_Name: Pork
   m_TagString: Untagged
@@ -7227,6 +7241,205 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &7000000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98872489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253321436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537461307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645899880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045734731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260927970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383928282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+  highlightRenderers:
+  - {fileID: 1213771205}
+  - {fileID: 1084026211}
+--- !u!114 &7000000000000000008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484658843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664764124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808208489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830052842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899650853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932730175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7000000000000000014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073995206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

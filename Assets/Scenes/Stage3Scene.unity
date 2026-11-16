@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 332990051}
   - component: {fileID: 332990050}
   - component: {fileID: 332990053}
+  - component: {fileID: 7100000000000000001}
   m_Layer: 3
   m_Name: Menudo
   m_TagString: Untagged
@@ -479,6 +480,7 @@ GameObject:
   - component: {fileID: 337198767}
   - component: {fileID: 337198766}
   - component: {fileID: 337198768}
+  - component: {fileID: 7100000000000000002}
   m_Layer: 0
   m_Name: Ladle
   m_TagString: Untagged
@@ -706,6 +708,7 @@ GameObject:
   - component: {fileID: 516231988}
   - component: {fileID: 516231990}
   - component: {fileID: 516231991}
+  - component: {fileID: 7100000000000000003}
   m_Layer: 3
   m_Name: Giniling Tray
   m_TagString: Untagged
@@ -1475,6 +1478,7 @@ GameObject:
   - component: {fileID: 1216543521}
   - component: {fileID: 1216543523}
   - component: {fileID: 1216543524}
+  - component: {fileID: 7100000000000000004}
   m_Layer: 3
   m_Name: Adobo
   m_TagString: Untagged
@@ -2161,6 +2165,7 @@ GameObject:
   - component: {fileID: 1603470865}
   - component: {fileID: 1603470868}
   - component: {fileID: 1603470867}
+  - component: {fileID: 7100000000000000005}
   m_Layer: 6
   m_Name: Plastic Container
   m_TagString: Untagged
@@ -2217,7 +2222,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4268620782627232472, guid: 90bad67d74f2034479b78c07e180404e, type: 3}
+  m_Sprite: {fileID: -7282097000565498894, guid: b96714137a257694aaf82bd49cd46926, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2236,13 +2241,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603470864}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.33, y: -1.71, z: 0}
-  m_LocalScale: {x: 0.578, y: 0.6038, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.17401937, w: 0.9847422}
+  m_LocalPosition: {x: -7, y: -3.52, z: 0}
+  m_LocalScale: {x: 0.81145424, y: 0.81669986, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20.043}
 --- !u!114 &1603470867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2256,8 +2261,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlasticContainer
   currentFood: 
-  emptySprite: {fileID: 4268620782627232472, guid: 90bad67d74f2034479b78c07e180404e, type: 3}
+  emptySprite: {fileID: -7282097000565498894, guid: b96714137a257694aaf82bd49cd46926, type: 3}
   filledSprite: {fileID: 3627025915171443396, guid: def69979a3a4e5940819d405627287fa, type: 3}
+  adoboBagSprite: {fileID: 7490029104582533926, guid: 9c277171e1368784183166b22024f818, type: 3}
+  afritadaBagSprite: {fileID: 8074453556000752225, guid: e9436bd5b554fa7478fcb6daaefa2079, type: 3}
+  ginilingBagSprite: {fileID: -8347080968394476094, guid: 5245dbdbd06ef2844953de973e3e0877, type: 3}
+  menudoBagSprite: {fileID: -3748748483000718014, guid: d43568ae200ada64686cd83a61c06d09, type: 3}
   isFilled: 0
   rejectionSound: {fileID: 8300000, guid: 973367e0c0d080d46915fe2bf9af5192, type: 3}
 --- !u!70 &1603470868
@@ -2357,6 +2366,7 @@ GameObject:
   - component: {fileID: 1692760911}
   - component: {fileID: 1692760913}
   - component: {fileID: 1692760914}
+  - component: {fileID: 7100000000000000006}
   m_Layer: 3
   m_Name: Afritada Tray
   m_TagString: Untagged
@@ -3248,6 +3258,7 @@ GameObject:
   - component: {fileID: 2080236001}
   - component: {fileID: 2080236002}
   - component: {fileID: 2080236003}
+  - component: {fileID: 2080236004}
   m_Layer: 6
   m_Name: Trash Can
   m_TagString: Untagged
@@ -3376,6 +3387,104 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.7935348, y: 3.241681}
   m_EdgeRadius: 0
+--- !u!114 &2080236004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080236000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 0.43023252, b: 0.390566, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7100000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332990049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7100000000000000002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337198764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7100000000000000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516231987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7100000000000000004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216543520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7100000000000000005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603470864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 0.28714305, g: 1, b: 0.2471698, a: 1}
+  hoverScale: 1.1
+--- !u!114 &7100000000000000006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692760910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
+  highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
+  hoverScale: 1.1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
