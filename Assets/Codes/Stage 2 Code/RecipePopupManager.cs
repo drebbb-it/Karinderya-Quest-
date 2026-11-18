@@ -17,6 +17,15 @@ public class RecipePopup : MonoBehaviour
 
     private bool popupOpen;
 
+    public Transform PopupCanvasTransform
+    {
+        get
+        {
+            Canvas canvas = popupPanel != null ? popupPanel.GetComponentInParent<Canvas>() : null;
+            return canvas != null ? canvas.transform : null;
+        }
+    }
+
     private void Awake()
     {
         Instance = this;

@@ -3194,6 +3194,10 @@ MonoBehaviour:
   musicScenes:
   - MainMenu
   - LevelSelection
+  - Stage2Scene
+  - Stage3Scene
+  stage2MusicClip: {fileID: 8300000, guid: 81aead27ff0b7a840a9c88898eb780f6, type: 3}
+  stage3MusicClip: {fileID: 8300000, guid: 8b797823f50f24e4584d287227be3ccf, type: 3}
 --- !u!82 &1551114859
 AudioSource:
   m_ObjectHideFlags: 0

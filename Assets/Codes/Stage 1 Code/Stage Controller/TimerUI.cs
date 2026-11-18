@@ -7,6 +7,7 @@ public class TimerUI : MonoBehaviour
 
     private AudioSource _timerWarningAudio;
     private bool _tenSecondWarningPlayed;
+    private bool _inventoryCompleted;
 
     private void Awake()
     {
@@ -24,14 +25,18 @@ public class TimerUI : MonoBehaviour
     {
         GameEvents.OnTimerTick += HandleTick;
         GameEvents.OnTimerExpired += HandleExpired;
+        GameEvents.OnInventoryComplete += HandleInventoryComplete;
     }
     private void OnDisable()
     {
         GameEvents.OnTimerTick -= HandleTick;
         GameEvents.OnTimerExpired -= HandleExpired;
+        GameEvents.OnInventoryComplete -= HandleInventoryComplete;
     }
     private void HandleTick(float secondsRemaining)
     {
+        if (_inventoryCompleted) return;
+
         int seconds = Mathf.CeilToInt(secondsRemaining);
         _timerText.text = $"Time: {seconds}";
 
@@ -47,6 +52,12 @@ public class TimerUI : MonoBehaviour
             _timerWarningAudio.PlayOneShot(_tenSecondTimerSound);
         }
     }   
+    private void HandleInventoryComplete()
+    {
+        _inventoryCompleted = true;
+        _timerWarningAudio.Stop();
+    }
+
     private void HandleExpired()
     {
         _timerText.text = "Time's Up!";

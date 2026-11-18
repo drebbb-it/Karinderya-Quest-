@@ -21,6 +21,11 @@ public class NPC : MonoBehaviour
     [SerializeField] private AudioClip windowSwishSound;
     [SerializeField] private AudioClip customerNotificationSound;
 
+    public bool HasPossibleOrders
+    {
+        get { return possibleOrders != null && possibleOrders.Length > 0; }
+    }
+
     bool canServe;
     Vector3 shownPos, hiddenPos;
 
@@ -29,9 +34,6 @@ public class NPC : MonoBehaviour
         shownPos = transform.position;
         hiddenPos = shownPos + Vector3.down * hideOffset;
         transform.position = hiddenPos;
-
-        wantedFood = possibleOrders[Random.Range(0, possibleOrders.Length)];
-        if (orderText != null) orderText.text = wantedFood;
 
         SetBubble(false);
     }
@@ -44,6 +46,14 @@ public class NPC : MonoBehaviour
 
     public void Show()
     {
+        if (!HasPossibleOrders)
+        {
+            Debug.LogError("NPC cannot appear because it has no possible orders.", this);
+            return;
+        }
+
+        wantedFood = possibleOrders[Random.Range(0, possibleOrders.Length)];
+        if (orderText != null) orderText.text = wantedFood;
         StartCoroutine(Appear());
     }
 

@@ -111,7 +111,7 @@ public class SpriteHighlight : MonoBehaviour
         ResetHighlight();
     }
 
-    private void ResetHighlight()
+    public void ResetHighlight()
     {
         if (!isHighlighted) return;
 

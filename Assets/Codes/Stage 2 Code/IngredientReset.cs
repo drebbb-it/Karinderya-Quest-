@@ -19,6 +19,12 @@ public class IngredientSpawner : MonoBehaviour
 
     public void RespawnIngredient()
     {
+        SpriteHighlight highlight = GetComponent<SpriteHighlight>();
+        if (highlight != null)
+        {
+            highlight.ResetHighlight();
+        }
+
         GameObject newIngredient =
             Instantiate(ingredientPrefab, originalParent);
 

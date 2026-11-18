@@ -162,4 +162,37 @@ public static class ButtonSFXUtility
 
         UnityEngine.Object.Destroy(playbackObject, clip.length / pitch);
     }
+
+    public static void PlayBriefly(AudioClip clip, float duration)
+    {
+        if (clip == null)
+        {
+            Debug.LogError("ButtonSFXUtility cannot play a null audio clip.");
+            return;
+        }
+
+        if (registeredSfxSource == null)
+        {
+            Debug.LogError("ButtonSFXUtility requires a registered AudioSource to play SFX.");
+            return;
+        }
+
+        if (duration <= 0f || float.IsNaN(duration) || float.IsInfinity(duration))
+        {
+            Debug.LogError("ButtonSFXUtility requires a finite, positive playback duration.");
+            return;
+        }
+
+        float playbackDuration = Mathf.Min(duration, clip.length);
+        GameObject playbackObject = new GameObject($"BriefSFX_{clip.name}");
+        AudioSource playbackSource = playbackObject.AddComponent<AudioSource>();
+        playbackSource.outputAudioMixerGroup = registeredSfxSource.outputAudioMixerGroup;
+        playbackSource.spatialBlend = registeredSfxSource.spatialBlend;
+        playbackSource.volume = registeredSfxSource.volume;
+        playbackSource.clip = clip;
+        playbackSource.Play();
+        playbackSource.SetScheduledEndTime(AudioSettings.dspTime + playbackDuration);
+
+        UnityEngine.Object.Destroy(playbackObject, playbackDuration + 0.05f);
+    }
 }

@@ -116,6 +116,7 @@ public class PauseManager : MonoBehaviour
         IsPaused = true;
         Time.timeScale = 0f;
         AudioListener.pause = true;
+        MusicPlayer.PauseMusic();
 
         if (pausePanel != null)  pausePanel.SetActive(true);
         if (pauseButton != null) pauseButton.gameObject.SetActive(false);
@@ -128,6 +129,7 @@ public class PauseManager : MonoBehaviour
         IsPaused = false;
         Time.timeScale = 1f;
         AudioListener.pause = false;
+        MusicPlayer.ResumeMusic();
 
         if (pausePanel != null)  pausePanel.SetActive(false);
         if (pauseButton != null) pauseButton.gameObject.SetActive(true);

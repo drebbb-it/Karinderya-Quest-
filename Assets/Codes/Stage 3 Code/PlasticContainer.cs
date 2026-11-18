@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlasticContainer : MonoBehaviour
 {
+        private const float PlasticSfxDuration = 1f;
+
         public string currentFood = "";
         public Sprite emptySprite; 
         public Sprite filledSprite;
@@ -11,6 +13,7 @@ public class PlasticContainer : MonoBehaviour
         public Sprite menudoBagSprite;
         public bool isFilled;
         [SerializeField] private AudioClip rejectionSound;
+        [SerializeField] private AudioClip plasticSound;
 
         SpriteRenderer sr;
         Camera cam;
@@ -40,6 +43,7 @@ public class PlasticContainer : MonoBehaviour
             isFilled = true;
             currentFood = food;
             sr.sprite = GetBagSprite(food);
+            PlayPlasticSound();
         }
 
         private Sprite GetBagSprite(string food)
@@ -88,6 +92,14 @@ public class PlasticContainer : MonoBehaviour
                     if (result == NPC.ServeResult.Wrong)
                     {
                         ButtonSFXUtility.PlayOneShot(rejectionSound);
+                        if (NPCManager.Instance != null)
+                        {
+                            NPCManager.Instance.RegisterWrongOrder();
+                        }
+                        else
+                        {
+                            Debug.LogError("PlasticContainer could not find the Stage 3 NPCManager to register the wrong order.", this);
+                        }
                     }
 
                     if (result != NPC.ServeResult.NotReady)
@@ -106,6 +118,11 @@ public class PlasticContainer : MonoBehaviour
             if (!isFilled) return;
             offset = transform.position - MouseWorld();
             dragging = true;
+        }
+
+        private void PlayPlasticSound()
+        {
+            ButtonSFXUtility.PlayBriefly(plasticSound, PlasticSfxDuration);
         }
         void OnMouseDrag()
         {

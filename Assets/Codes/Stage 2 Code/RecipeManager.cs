@@ -1,9 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RecipeManager : MonoBehaviour
 {
     public static RecipeManager Instance;
+
+    private const int StartingLives = 3;
 
     [Header("Dish Sprites")]
     public Sprite afritadaSprite;
@@ -12,12 +17,45 @@ public class RecipeManager : MonoBehaviour
     public Sprite adoboSprite;
     public Sprite failedSprite;
 
+    [Header("Lives")]
+    [SerializeField] private Sprite heartSprite;
+    [SerializeField] private Sprite emptyHeartSprite;
+    [SerializeField] private Image[] heartImages;
+
     [Header("Audio")]
     [SerializeField] private AudioClip cookSuccessSfx;
+
+    private int currentLives;
+    private bool pendingGameOver;
+    private bool gameOverShown;
 
     private void Awake()
     {
         Instance = this;
+        currentLives = StartingLives;
+    }
+
+    private void OnEnable()
+    {
+        RecipePopup.PopupDismissed += HandleRecipePopupDismissed;
+    }
+
+    private void OnDisable()
+    {
+        RecipePopup.PopupDismissed -= HandleRecipePopupDismissed;
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
+    private void Start()
+    {
+        UpdateLivesDisplay();
     }
 
     public void CheckRecipe(List<string> ingredients)
@@ -73,6 +111,7 @@ public class RecipeManager : MonoBehaviour
         else
         {
             Debug.Log("Failed Recipe!");
+            LoseHeart();
 
             RecipePopup.Instance.ShowPopup(
                 "Failed Recipe",
@@ -86,5 +125,62 @@ public class RecipeManager : MonoBehaviour
         ButtonSFXUtility.PlayOneShot(cookSuccessSfx);
         RecipePopup.Instance.ShowPopup(dishName, dishSprite);
         ObjectiveManager.Instance.DishCooked(dishName);
+    }
+
+    private void LoseHeart()
+    {
+        if (currentLives <= 0 || gameOverShown) return;
+
+        currentLives--;
+        UpdateLivesDisplay();
+        pendingGameOver = currentLives == 0;
+    }
+
+    private void UpdateLivesDisplay()
+    {
+        if (heartImages == null) return;
+
+        for (int i = 0; i < heartImages.Length; i++)
+        {
+            if (heartImages[i] != null)
+            {
+                heartImages[i].sprite = i < currentLives ? heartSprite : emptyHeartSprite;
+            }
+        }
+    }
+
+    private void HandleRecipePopupDismissed()
+    {
+        if (!pendingGameOver || gameOverShown) return;
+
+        pendingGameOver = false;
+        gameOverShown = true;
+        PauseManager.LockForGameOver();
+
+        GameObject defeatPanel = StageVictoryPopup.Create(
+            "GAME OVER!",
+            "You lost all three hearts after failed dishes.",
+            new[] { "PLAY AGAIN", "LEVEL SELECT" },
+            new UnityAction[]
+            {
+                RestartStage,
+                LoadLevelSelection
+            },
+            new[]
+            {
+                new Color(0.45f, 0.25f, 0.25f),
+                new Color(0.25f, 0.35f, 0.55f)
+            });
+        defeatPanel.SetActive(true);
+    }
+
+    private void RestartStage()
+    {
+        SFXSceneLoad.LoadSceneAfterDelay(this, SceneManager.GetActiveScene().name);
+    }
+
+    private void LoadLevelSelection()
+    {
+        SFXSceneLoad.LoadSceneAfterDelay(this, "LevelSelection");
     }
 }
