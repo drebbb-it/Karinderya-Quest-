@@ -13,6 +13,7 @@ public class PlasticContainer : MonoBehaviour
         public Sprite menudoBagSprite;
         public bool isFilled;
         [SerializeField] private AudioClip rejectionSound;
+        [SerializeField] private AudioClip correctOrderSound;
         [SerializeField] private AudioClip plasticSound;
 
         SpriteRenderer sr;
@@ -89,7 +90,11 @@ public class PlasticContainer : MonoBehaviour
                 if (npc != null)
                 {
                     var result = npc.Serve(currentFood);
-                    if (result == NPC.ServeResult.Wrong)
+                    if (result == NPC.ServeResult.Correct)
+                    {
+                        ButtonSFXUtility.PlayOneShot(correctOrderSound);
+                    }
+                    else if (result == NPC.ServeResult.Wrong)
                     {
                         ButtonSFXUtility.PlayOneShot(rejectionSound);
                         if (NPCManager.Instance != null)

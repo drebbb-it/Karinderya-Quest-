@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class NPCManager : MonoBehaviour
 {
     private const int StartingLives = 3;
+    private const int MaximumCustomersAtOnce = 3;
+    private const float CustomerSlotGap = 0.25f;
 
     public static NPCManager Instance { get; private set; }
 
@@ -20,21 +22,47 @@ public class NPCManager : MonoBehaviour
     private bool gameOverShown;
     private int currentLives;
     [SerializeField] private AudioClip levelUpSound;
+    private Vector3 customerSpawnCenter;
 
     private void Awake()
     {
         Instance = this;
         currentLives = StartingLives;
 
+        List<NPC> allNpcs = new List<NPC>();
         if (npcs != null)
         {
             foreach (NPC npc in npcs)
             {
-                if (npc != null)
+                if (npc != null && !allNpcs.Contains(npc))
                 {
-                    npc.gameObject.SetActive(false);
+                    allNpcs.Add(npc);
                 }
             }
+        }
+
+        foreach (NPC npc in FindObjectsByType<NPC>(FindObjectsInactive.Include))
+        {
+            if (npc != null && !allNpcs.Contains(npc))
+            {
+                allNpcs.Add(npc);
+            }
+        }
+
+        if (allNpcs.Count > 0)
+        {
+            foreach (NPC npc in allNpcs)
+            {
+                customerSpawnCenter += npc.InitialShownPosition;
+            }
+
+            customerSpawnCenter /= allNpcs.Count;
+        }
+
+        npcs = allNpcs.ToArray();
+        foreach (NPC npc in npcs)
+        {
+            npc.gameObject.SetActive(false);
         }
     }
 
@@ -73,9 +101,8 @@ public class NPCManager : MonoBehaviour
             yield break;
         }
 
-        int minimumCount = Mathf.Min(2, randomizedNpcs.Count);
-        int maximumCount = Mathf.Min(3, randomizedNpcs.Count);
-        int customerCount = Random.Range(minimumCount, maximumCount + 1);
+        int maximumCount = Mathf.Min(MaximumCustomersAtOnce, randomizedNpcs.Count);
+        int customerCount = Random.Range(1, maximumCount + 1);
 
         for (int i = 0; i < randomizedNpcs.Count; i++)
         {
@@ -85,23 +112,62 @@ public class NPCManager : MonoBehaviour
             randomizedNpcs[swapIndex] = temp;
         }
 
-        for (int i = customerCount; i < randomizedNpcs.Count; i++)
+        List<NPC> selectedNpcs = randomizedNpcs.GetRange(0, customerCount);
+        float slotSpacing = GetCustomerSlotSpacing(selectedNpcs);
+        yield return new WaitForSeconds(delayBetween);
+
+        for (int i = 0; i < selectedNpcs.Count; i++)
         {
-            randomizedNpcs[i].gameObject.SetActive(false);
+            NPC npc = selectedNpcs[i];
+            if (npc == null) continue;
+
+            float slotOffset = (i - (customerCount - 1) * 0.5f) * slotSpacing;
+            npc.gameObject.SetActive(true);
+            npc.ShowAt(customerSpawnCenter + Vector3.right * slotOffset);
         }
 
-        for (int i = 0; i < customerCount; i++)
-        {
-            yield return new WaitForSeconds(delayBetween);
-            NPC npc = randomizedNpcs[i];
-            if (npc == null) continue;
-            npc.gameObject.SetActive(true);
-            npc.Show();
-            yield return new WaitUntil(() => npc == null);
-        }
+        yield return new WaitUntil(() => AreAllCustomersServed(selectedNpcs));
 
         Debug.Log("All customers served!");
         ShowVictoryPopup();
+    }
+
+    private float GetCustomerSlotSpacing(List<NPC> selectedNpcs)
+    {
+        float widestCustomer = 0f;
+        foreach (NPC npc in selectedNpcs)
+        {
+            if (npc == null) continue;
+
+            float horizontalScale = Mathf.Abs(npc.transform.lossyScale.x);
+            SpriteRenderer spriteRenderer = npc.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null && spriteRenderer.sprite != null)
+            {
+                widestCustomer = Mathf.Max(
+                    widestCustomer,
+                    spriteRenderer.sprite.bounds.size.x * horizontalScale);
+            }
+
+            BoxCollider2D collider = npc.GetComponent<BoxCollider2D>();
+            if (collider != null)
+            {
+                widestCustomer = Mathf.Max(
+                    widestCustomer,
+                    collider.size.x * horizontalScale);
+            }
+        }
+
+        return Mathf.Max(1f, widestCustomer + CustomerSlotGap);
+    }
+
+    private bool AreAllCustomersServed(List<NPC> selectedNpcs)
+    {
+        foreach (NPC npc in selectedNpcs)
+        {
+            if (npc != null) return false;
+        }
+
+        return true;
     }
 
     private void ShowVictoryPopup()

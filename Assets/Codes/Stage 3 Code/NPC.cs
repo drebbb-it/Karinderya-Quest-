@@ -28,11 +28,18 @@ public class NPC : MonoBehaviour
 
     bool canServe;
     Vector3 shownPos, hiddenPos;
+    bool hasInitialPosition;
+
+    public Vector3 InitialShownPosition
+    {
+        get { return hasInitialPosition ? shownPos : transform.position; }
+    }
 
     void Awake()
     {
         shownPos = transform.position;
         hiddenPos = shownPos + Vector3.down * hideOffset;
+        hasInitialPosition = true;
         transform.position = hiddenPos;
 
         SetBubble(false);
@@ -46,11 +53,20 @@ public class NPC : MonoBehaviour
 
     public void Show()
     {
+        ShowAt(InitialShownPosition);
+    }
+
+    public void ShowAt(Vector3 position)
+    {
         if (!HasPossibleOrders)
         {
             Debug.LogError("NPC cannot appear because it has no possible orders.", this);
             return;
         }
+
+        shownPos = position;
+        hiddenPos = shownPos + Vector3.down * hideOffset;
+        transform.position = hiddenPos;
 
         wantedFood = possibleOrders[Random.Range(0, possibleOrders.Length)];
         if (orderText != null) orderText.text = wantedFood;
