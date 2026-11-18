@@ -283,7 +283,7 @@ MonoBehaviour:
   musicSlider: {fileID: 211822435}
   sfxSlider: {fileID: 496528299}
   sfxSource: {fileID: 156965370}
-  clickClip: {fileID: 8300000, guid: bbdbecd496a1afc4287c58d861e830fd, type: 3}
+  clickClip: {fileID: 8300000, guid: 336094d04f529fb49acbaf2b3b63158f, type: 3}
   hoverClip: {fileID: 8300000, guid: b4462bd55dc98e141b5968693b4fe7b5, type: 3}
 --- !u!82 &156965370
 AudioSource:

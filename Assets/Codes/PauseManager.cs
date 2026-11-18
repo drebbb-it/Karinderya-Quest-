@@ -32,6 +32,7 @@ public class PauseManager : MonoBehaviour
         IsPaused = false;
         IsGameOver = false;
         Time.timeScale = 1f;
+        AudioListener.pause = false;
 
         // Subscribe once; will fire for every scene from now on
         SceneManager.sceneLoaded -= HandleSceneLoaded;   // prevent double-subscribe on domain reload
@@ -44,6 +45,7 @@ public class PauseManager : MonoBehaviour
         IsPaused = false;
         IsGameOver = false;
         Time.timeScale = 1f;
+        AudioListener.pause = false;
 
         // Auto-create PauseManager in every Stage scene if one isn't already there
         if (scene.name.StartsWith("Stage"))
@@ -69,6 +71,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         IsPaused = false;
         IsGameOver = false;
+        AudioListener.pause = false;
 
         EnsureUI();
     }
@@ -79,6 +82,7 @@ public class PauseManager : MonoBehaviour
         {
             Time.timeScale = 1f;
             IsPaused = false;
+            AudioListener.pause = false;
             Instance = null;
         }
     }
@@ -111,6 +115,7 @@ public class PauseManager : MonoBehaviour
 
         IsPaused = true;
         Time.timeScale = 0f;
+        AudioListener.pause = true;
 
         if (pausePanel != null)  pausePanel.SetActive(true);
         if (pauseButton != null) pauseButton.gameObject.SetActive(false);
@@ -122,6 +127,7 @@ public class PauseManager : MonoBehaviour
 
         IsPaused = false;
         Time.timeScale = 1f;
+        AudioListener.pause = false;
 
         if (pausePanel != null)  pausePanel.SetActive(false);
         if (pauseButton != null) pauseButton.gameObject.SetActive(true);

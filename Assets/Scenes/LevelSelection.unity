@@ -1478,6 +1478,8 @@ MonoBehaviour:
   level1Button: {fileID: 752100560}
   level2Button: {fileID: 1660061197}
   level3Button: {fileID: 1913143769}
+  resetButton: {fileID: 2087754012}
+  backButton: {fileID: 1496633547}
   level1Image: {fileID: 752100561}
   level2Image: {fileID: 1660061198}
   level3Image: {fileID: 1913143770}
@@ -1515,7 +1517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VolumeLoader
   myMixer: {fileID: 24100000, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
   _sfxMixerGroup: {fileID: -4532634057650838038, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
-  _buttonClickClip: {fileID: 8300000, guid: bbdbecd496a1afc4287c58d861e830fd, type: 3}
+  _buttonClickClip: {fileID: 8300000, guid: 336094d04f529fb49acbaf2b3b63158f, type: 3}
   _buttonHoverClip: {fileID: 8300000, guid: b4462bd55dc98e141b5968693b4fe7b5, type: 3}
 --- !u!1 &1823423160
 GameObject:

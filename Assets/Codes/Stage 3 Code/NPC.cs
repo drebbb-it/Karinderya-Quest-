@@ -6,6 +6,8 @@ public class NPC : MonoBehaviour
 {
     public enum ServeResult { NotReady, Wrong, Correct }
 
+    private const float WindowSwishPitch = 0.65f;
+
     public bool served;
     public float hideOffset = 4f;
     public float moveTime = 0.5f;
@@ -16,6 +18,8 @@ public class NPC : MonoBehaviour
     public string wantedFood;
     public GameObject orderBubble;    // child object na may text
     public TextMeshPro orderText;
+    [SerializeField] private AudioClip windowSwishSound;
+    [SerializeField] private AudioClip customerNotificationSound;
 
     bool canServe;
     Vector3 shownPos, hiddenPos;
@@ -64,6 +68,7 @@ public class NPC : MonoBehaviour
 
     IEnumerator Appear()
     {
+        ButtonSFXUtility.PlayOneShot(windowSwishSound, WindowSwishPitch);
         yield return Move(hiddenPos, shownPos);
 
         // Maghihintay muna ng 0.3 seconds pagkatapos umakyat bago lumabas ang order text
@@ -71,11 +76,13 @@ public class NPC : MonoBehaviour
 
         canServe = true;
         SetBubble(true);
+        ButtonSFXUtility.PlayOneShot(customerNotificationSound);
     }
 
     IEnumerator Leave()
     {
         yield return new WaitForSeconds(stayTime);
+        ButtonSFXUtility.PlayOneShot(windowSwishSound, WindowSwishPitch);
         yield return Move(shownPos, hiddenPos);
         Destroy(gameObject);
     }

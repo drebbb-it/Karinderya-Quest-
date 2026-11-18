@@ -214,6 +214,7 @@ public class CookbookUI : MonoBehaviour
         ocb.pressedColor     = new Color(0.38f, 0.20f, 0.06f, 1f);
         openBtn.colors = ocb;
         openBtn.onClick.AddListener(ToggleCookbook);
+        ButtonSFXUtility.RegisterButton(openBtn);
 
         // ── Cookbook modal panel ───────────────────────────────────────
         cookbookPanel = new GameObject("CookbookPanel",
@@ -264,7 +265,9 @@ public class CookbookUI : MonoBehaviour
         GameObject closeLbl = MakeText(closeGO.transform, "X", "\u2715",
             font, 18, FontStyle.Bold, Color.white, TextAnchor.MiddleCenter);
         StretchFill(closeLbl.GetComponent<RectTransform>());
-        closeGO.GetComponent<Button>().onClick.AddListener(CloseCookbook);
+        Button closeButton = closeGO.GetComponent<Button>();
+        closeButton.onClick.AddListener(CloseCookbook);
+        ButtonSFXUtility.RegisterButton(closeButton);
 
         // ── Tab row ────────────────────────────────────────────────────
         GameObject tabRow = new GameObject("TabRow",
@@ -364,6 +367,7 @@ public class CookbookUI : MonoBehaviour
                 ShowRecipe(captured, dishImg, ingText, dnText);
                 HighlightTab(capturedImg, capturedLbl);
             });
+            ButtonSFXUtility.RegisterButton(tabBtn);
 
             if (firstTab)
             {
@@ -478,6 +482,7 @@ public class CookbookUI : MonoBehaviour
     public void OpenCookbook()
     {
         IsOpen = true;
+        SetIngredientHighlightsEnabled(false);
         cookbookPanel.SetActive(true);
     }
 
@@ -485,6 +490,23 @@ public class CookbookUI : MonoBehaviour
     public void CloseCookbook()
     {
         IsOpen = false;
+        SetIngredientHighlightsEnabled(true);
         cookbookPanel.SetActive(false);
+    }
+
+    private static void SetIngredientHighlightsEnabled(bool isEnabled)
+    {
+        CookingPot.Instance?.SetCookbookOpen(!isEnabled);
+
+        DraggableIngredient[] ingredients =
+            FindObjectsByType<DraggableIngredient>(FindObjectsInactive.Include);
+        foreach (DraggableIngredient ingredient in ingredients)
+        {
+            SpriteHighlight highlight = ingredient.GetComponent<SpriteHighlight>();
+            if (highlight != null)
+            {
+                highlight.enabled = isEnabled;
+            }
+        }
     }
 }

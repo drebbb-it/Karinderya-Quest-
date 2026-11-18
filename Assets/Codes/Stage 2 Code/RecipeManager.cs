@@ -12,6 +12,9 @@ public class RecipeManager : MonoBehaviour
     public Sprite adoboSprite;
     public Sprite failedSprite;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip cookSuccessSfx;
+
     private void Awake()
     {
         Instance = this;
@@ -29,78 +32,42 @@ public class RecipeManager : MonoBehaviour
         if (result == "BellPepper,Carrot,Chicken,Potato,TomatoSauce")
         {
             Debug.Log("You made Afritada!");
-
-            RecipePopup.Instance.ShowPopup(
-                "Afritada",
-                afritadaSprite
-            );
-
-            ObjectiveManager.Instance.DishCooked("Afritada");
+            ShowSuccessfulRecipe("Afritada", afritadaSprite);
         }
 
         // AFRITADA (Pork)
         else if (result == "BellPepper,Carrot,Pork,Potato,TomatoSauce")
         {
             Debug.Log("You made Afritada!");
-
-            RecipePopup.Instance.ShowPopup(
-                "Afritada",
-                afritadaSprite
-            );
-
-            ObjectiveManager.Instance.DishCooked("Afritada");
+            ShowSuccessfulRecipe("Afritada", afritadaSprite);
         }
 
         // GINILING
         else if (result == "BayLeaves,Carrot,Garlic,GroundPork,Onion,Patis,Potato")
         {
             Debug.Log("You made Giniling!");
-
-            RecipePopup.Instance.ShowPopup(
-                "Giniling",
-                ginilingSprite
-            );
-
-            ObjectiveManager.Instance.DishCooked("Giniling");
+            ShowSuccessfulRecipe("Giniling", ginilingSprite);
         }
 
         // MENUDO
         else if (result == "Carrot,Pork,Potato,TomatoSauce")
         {
             Debug.Log("You made Menudo!");
-
-            RecipePopup.Instance.ShowPopup(
-                "Menudo",
-                menudoSprite
-            );
-
-            ObjectiveManager.Instance.DishCooked("Menudo");
+            ShowSuccessfulRecipe("Menudo", menudoSprite);
         }
 
         // ADOBO (Chicken)
         else if (result == "BayLeaves,Chicken,Garlic,SoySauce,Vinegar")
         {
             Debug.Log("You made Adobo!");
-
-            RecipePopup.Instance.ShowPopup(
-                "Adobo",
-                adoboSprite
-            );
-
-            ObjectiveManager.Instance.DishCooked("Adobo");
+            ShowSuccessfulRecipe("Adobo", adoboSprite);
         }
 
         // ADOBO (Pork)
         else if (result == "BayLeaves,Garlic,Pork,SoySauce,Vinegar")
         {
             Debug.Log("You made Adobo!");
-
-            RecipePopup.Instance.ShowPopup(
-                "Adobo",
-                adoboSprite
-            );
-
-            ObjectiveManager.Instance.DishCooked("Adobo");
+            ShowSuccessfulRecipe("Adobo", adoboSprite);
         }
 
         else
@@ -112,5 +79,12 @@ public class RecipeManager : MonoBehaviour
                 failedSprite
             );
         }
+    }
+
+    private void ShowSuccessfulRecipe(string dishName, Sprite dishSprite)
+    {
+        ButtonSFXUtility.PlayOneShot(cookSuccessSfx);
+        RecipePopup.Instance.ShowPopup(dishName, dishSprite);
+        ObjectiveManager.Instance.DishCooked(dishName);
     }
 }

@@ -1602,7 +1602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VolumeLoader
   myMixer: {fileID: 24100000, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
   _sfxMixerGroup: {fileID: -4532634057650838038, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
-  _buttonClickClip: {fileID: 8300000, guid: bbdbecd496a1afc4287c58d861e830fd, type: 3}
+  _buttonClickClip: {fileID: 8300000, guid: 336094d04f529fb49acbaf2b3b63158f, type: 3}
   _buttonHoverClip: {fileID: 8300000, guid: b4462bd55dc98e141b5968693b4fe7b5, type: 3}
 --- !u!1 &442881222
 GameObject:
@@ -3415,7 +3415,7 @@ Transform:
   m_GameObject: {fileID: 1046092991}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -1.73, z: 0}
+  m_LocalPosition: {x: -0.04, y: -1.78, z: 0}
   m_LocalScale: {x: 1.5170375, y: 1.5499998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3529,7 +3529,7 @@ Transform:
   m_GameObject: {fileID: 1084026209}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09, y: -0.38, z: -47.537086}
+  m_LocalPosition: {x: 0.12, y: -0.41, z: -47.537086}
   m_LocalScale: {x: 0.9811609, y: 0.9725574, z: 1.4985163}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3758,7 +3758,7 @@ Transform:
   m_GameObject: {fileID: 1213771203}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09, y: -0.1, z: -47.537086}
+  m_LocalPosition: {x: 0.09, y: -0.14, z: -47.537086}
   m_LocalScale: {x: 0.97571063, y: 0.9593829, z: 1.4985163}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4525,6 +4525,7 @@ MonoBehaviour:
   menudoSprite: {fileID: -5067241109033533935, guid: efe7fcb84af72ce4ca80daa36ed26818, type: 3}
   adoboSprite: {fileID: -3872691905914273662, guid: 560088008ec328f43a72c8b4b69ca769, type: 3}
   failedSprite: {fileID: -6405752098009995145, guid: be738244de7574347bc806d27302cfec, type: 3}
+  cookSuccessSfx: {fileID: 8300000, guid: 852297d267ad04f4ab888bf721cf20b1, type: 3}
 --- !u!1 &1484658843
 GameObject:
   m_ObjectHideFlags: 0
@@ -7251,10 +7252,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7265,10 +7267,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7279,10 +7282,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7293,10 +7297,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7307,10 +7312,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7321,10 +7327,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7335,7 +7342,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
@@ -7352,10 +7359,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7366,10 +7374,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7380,10 +7389,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7394,10 +7404,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7408,10 +7419,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7422,10 +7434,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7000000000000000014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7436,10 +7449,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa11db0b4693c104fa5b65c5ba7c47ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

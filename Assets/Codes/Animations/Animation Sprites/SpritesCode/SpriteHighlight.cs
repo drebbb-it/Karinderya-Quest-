@@ -8,6 +8,8 @@ public class SpriteHighlight : MonoBehaviour
     [SerializeField] private SpriteRenderer[] highlightRenderers;
 
     private SpriteRenderer sr;
+    private Collider2D[] hoverColliders;
+    private Camera mainCamera;
     private Color[] originalColors;
     private Vector3[] originalScales;
     private bool isHighlighted;
@@ -15,6 +17,8 @@ public class SpriteHighlight : MonoBehaviour
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        hoverColliders = GetComponents<Collider2D>();
+        mainCamera = Camera.main;
         if (highlightRenderers == null || highlightRenderers.Length == 0)
         {
             highlightRenderers = new[] { sr };
@@ -36,13 +40,59 @@ public class SpriteHighlight : MonoBehaviour
         }
     }
 
-    void OnMouseEnter()
+    void Update()
     {
-        if (PauseManager.IsPaused)
+        if (PauseManager.IsPaused || !IsPointerOverTarget())
         {
             ResetHighlight();
             return;
         }
+
+        ApplyHighlight();
+    }
+
+    private bool IsPointerOverTarget()
+    {
+        if (mainCamera == null) mainCamera = Camera.main;
+        if (mainCamera == null) return false;
+
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        if (hoverColliders != null)
+        {
+            foreach (Collider2D hoverCollider in hoverColliders)
+            {
+                if (hoverCollider == null || !hoverCollider.enabled) continue;
+
+                Plane colliderPlane = new Plane(Vector3.forward, hoverCollider.bounds.center);
+                if (colliderPlane.Raycast(ray, out float distance) &&
+                    distance >= 0f &&
+                    hoverCollider.OverlapPoint(ray.GetPoint(distance)))
+                {
+                    return true;
+                }
+            }
+        }
+
+        foreach (SpriteRenderer renderer in highlightRenderers)
+        {
+            if (renderer == null) continue;
+
+            Bounds bounds = renderer.bounds;
+            Plane spritePlane = new Plane(Vector3.forward, bounds.center);
+            if (spritePlane.Raycast(ray, out float distance) &&
+                distance >= 0f &&
+                bounds.Contains(ray.GetPoint(distance)))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void ApplyHighlight()
+    {
+        if (isHighlighted) return;
 
         for (int i = 0; i < highlightRenderers.Length; i++)
         {
@@ -52,20 +102,8 @@ public class SpriteHighlight : MonoBehaviour
             renderer.color = highlightColor;
             renderer.transform.localScale = originalScales[i] * hoverScale;
         }
+
         isHighlighted = true;
-    }
-
-    void OnMouseExit()
-    {
-        ResetHighlight();
-    }
-
-    void Update()
-    {
-        if (PauseManager.IsPaused)
-        {
-            ResetHighlight();
-        }
     }
 
     void OnDisable()

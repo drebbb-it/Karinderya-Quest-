@@ -307,7 +307,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 253.8185, y: 147.1955}
+  m_SizeDelta: {x: 282.37, y: 111.1708}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &101971343
 MonoBehaviour:
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.64012843, b: 0.13396227, a: 0.392}
+  m_Color: {r: 0.18, g: 0.09, b: 0.055, a: 0.96}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -376,12 +376,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 8
+    m_Right: 8
+    m_Top: 8
+    m_Bottom: 8
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 4
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -2114,7 +2114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 430, y: -25}
+  m_AnchoredPosition: {x: 409, y: -25}
   m_SizeDelta: {x: 217.2666, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &631171509
@@ -10411,6 +10411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerUI
   _timerText: {fileID: 631171509}
+  _tenSecondTimerSound: {fileID: 8300000, guid: d643a7f5b5600a74ab80484dea64aafd, type: 3}
 --- !u!1001 &1251143586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10911,7 +10912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VolumeLoader
   myMixer: {fileID: 24100000, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
   _sfxMixerGroup: {fileID: -4532634057650838038, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
-  _buttonClickClip: {fileID: 8300000, guid: bbdbecd496a1afc4287c58d861e830fd, type: 3}
+  _buttonClickClip: {fileID: 8300000, guid: 336094d04f529fb49acbaf2b3b63158f, type: 3}
   _buttonHoverClip: {fileID: 8300000, guid: b4462bd55dc98e141b5968693b4fe7b5, type: 3}
 --- !u!1 &1609525433
 GameObject:
@@ -12419,7 +12420,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 9eb0157db060a9248803e42551f6b8ff, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0

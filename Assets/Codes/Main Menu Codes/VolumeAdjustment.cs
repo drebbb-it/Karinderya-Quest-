@@ -90,7 +90,7 @@ public static class ButtonSFXUtility
             {
                 if (registeredSfxSource != null)
                 {
-                    registeredSfxSource.PlayOneShot(registeredClickClip);
+                    registeredSfxSource.PlayOneShot(registeredClickClip, 2f);
                 }
             });
         }
@@ -130,5 +130,36 @@ public static class ButtonSFXUtility
         }
 
         registeredSfxSource.PlayOneShot(clip);
+    }
+
+    public static void PlayOneShot(AudioClip clip, float pitch)
+    {
+        if (clip == null)
+        {
+            Debug.LogError("ButtonSFXUtility cannot play a null audio clip.");
+            return;
+        }
+
+        if (registeredSfxSource == null)
+        {
+            Debug.LogError("ButtonSFXUtility requires a registered AudioSource to play SFX.");
+            return;
+        }
+
+        if (pitch <= 0f || float.IsNaN(pitch) || float.IsInfinity(pitch))
+        {
+            Debug.LogError("ButtonSFXUtility requires a finite, positive pitch.");
+            return;
+        }
+
+        GameObject playbackObject = new GameObject($"OneShotSFX_{clip.name}");
+        AudioSource playbackSource = playbackObject.AddComponent<AudioSource>();
+        playbackSource.outputAudioMixerGroup = registeredSfxSource.outputAudioMixerGroup;
+        playbackSource.spatialBlend = registeredSfxSource.spatialBlend;
+        playbackSource.volume = registeredSfxSource.volume;
+        playbackSource.pitch = pitch;
+        playbackSource.PlayOneShot(clip);
+
+        UnityEngine.Object.Destroy(playbackObject, clip.length / pitch);
     }
 }

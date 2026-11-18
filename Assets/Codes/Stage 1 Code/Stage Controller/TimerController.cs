@@ -26,7 +26,7 @@ public class TimerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(!_isRunning)
+        if (!_isRunning || PauseManager.IsPaused)
         {
             return;
         }

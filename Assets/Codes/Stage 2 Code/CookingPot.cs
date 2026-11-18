@@ -32,6 +32,7 @@ public class CookingPot : MonoBehaviour
     [SerializeField] private GameObject stoveFire;
 
     private bool isCooking = false;
+    private SpriteHighlight spriteHighlight;
 
     private void Awake()
     {
@@ -41,9 +42,10 @@ public class CookingPot : MonoBehaviour
             return;
         }
 
-        if (GetComponent<SpriteHighlight>() == null)
+        spriteHighlight = GetComponent<SpriteHighlight>();
+        if (spriteHighlight == null)
         {
-            gameObject.AddComponent<SpriteHighlight>();
+            spriteHighlight = gameObject.AddComponent<SpriteHighlight>();
         }
 
         Instance = this;
@@ -54,6 +56,14 @@ public class CookingPot : MonoBehaviour
         if (Instance == this)
         {
             Instance = null;
+        }
+    }
+
+    public void SetCookbookOpen(bool isOpen)
+    {
+        if (spriteHighlight != null)
+        {
+            spriteHighlight.enabled = !isOpen && !isCooking;
         }
     }
 
@@ -122,6 +132,7 @@ public class CookingPot : MonoBehaviour
     private IEnumerator CookFood()
     {
         isCooking = true;
+        spriteHighlight.enabled = false;
         ButtonSFXUtility.PlayOneShot(cookingSfx);
         
         if (potClosed != null)
@@ -199,6 +210,7 @@ public class CookingPot : MonoBehaviour
         }
 
         isCooking = false;
+        spriteHighlight.enabled = !CookbookUI.IsOpen;
     }
 
     public void NotifyIngredientsChanged()

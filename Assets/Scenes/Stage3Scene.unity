@@ -969,6 +969,8 @@ MonoBehaviour:
   wantedFood: 
   orderBubble: {fileID: 0}
   orderText: {fileID: 1996518470}
+  windowSwishSound: {fileID: 8300000, guid: 8b0325c8a482edb46a2b858c39db5043, type: 3}
+  customerNotificationSound: {fileID: 8300000, guid: d2e972e9ad5845b4b9366a8eb346a595, type: 3}
 --- !u!61 &540988876
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1706,8 +1708,8 @@ Transform:
   m_GameObject: {fileID: 1358674311}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.54, y: -4.52, z: -3392.9998}
-  m_LocalScale: {x: 133.35722, y: 132.58136, z: 37.699997}
+  m_LocalPosition: {x: 9.48, y: 4.83, z: -3392.9998}
+  m_LocalScale: {x: 134.6908, y: 133.90717, z: 37.699997}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1426297611}
@@ -2352,7 +2354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VolumeLoader
   myMixer: {fileID: 24100000, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
   _sfxMixerGroup: {fileID: -4532634057650838038, guid: 4dfbeea333a5d0b4591fa37d9dc3078f, type: 2}
-  _buttonClickClip: {fileID: 8300000, guid: bbdbecd496a1afc4287c58d861e830fd, type: 3}
+  _buttonClickClip: {fileID: 8300000, guid: 336094d04f529fb49acbaf2b3b63158f, type: 3}
   _buttonHoverClip: {fileID: 8300000, guid: b4462bd55dc98e141b5968693b4fe7b5, type: 3}
 --- !u!1 &1692760910
 GameObject:
@@ -2673,6 +2675,8 @@ MonoBehaviour:
   wantedFood: 
   orderBubble: {fileID: 0}
   orderText: {fileID: 898856120}
+  windowSwishSound: {fileID: 8300000, guid: 8b0325c8a482edb46a2b858c39db5043, type: 3}
+  customerNotificationSound: {fileID: 8300000, guid: d2e972e9ad5845b4b9366a8eb346a595, type: 3}
 --- !u!1 &1755937466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,6 +2720,8 @@ MonoBehaviour:
   wantedFood: 
   orderBubble: {fileID: 0}
   orderText: {fileID: 1395709140}
+  windowSwishSound: {fileID: 8300000, guid: 8b0325c8a482edb46a2b858c39db5043, type: 3}
+  customerNotificationSound: {fileID: 8300000, guid: d2e972e9ad5845b4b9366a8eb346a595, type: 3}
 --- !u!61 &1755937468
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3401,6 +3407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 0.43023252, b: 0.390566, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7100000000000000001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3415,6 +3422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7100000000000000002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3429,6 +3437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7100000000000000003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3443,6 +3452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7100000000000000004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3457,6 +3467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7100000000000000005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3471,6 +3482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 0.28714305, g: 1, b: 0.2471698, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!114 &7100000000000000006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3485,6 +3497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHighlight
   highlightColor: {r: 1, g: 1, b: 0.6, a: 1}
   hoverScale: 1.1
+  highlightRenderers: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
